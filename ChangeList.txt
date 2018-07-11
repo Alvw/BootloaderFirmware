@@ -1,0 +1,23 @@
+Описание изменений из стандартного примера:
+1. Linker Generator Auto_Generate_linker_files.bat переделка на размер бутлоадера с 1k на 1.5k для msp430f2274:
+CRC 		C000
+AppStart 	C003
+AppEnd		F9FF
+BootStart	FA00
+IntVect		FFE0
+
+2. Светодиод с P1.1 На P1.7
+
+3. Убрать инициализацию кнопки P1.3
+
+4. HW Entry Condition по кнопке P1.3
+
+5. WatchDogFeed добавить в функцию стирания памяти
+
+6. UART на 460800
+
+7. undef ConfigPHDLShared
+
+8. -Z(CONST)BOOT_APP_VECTORS=0
+
+9. Настройки проекта изменить микроконтроллер с 2553 на 2274. 
