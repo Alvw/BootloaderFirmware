@@ -1,0 +1,170 @@
+/* --------------------------------------------------------------------------
+* Copyright (c) 2012, IAR Systems - All rights reserved.
+*
+* This source code is the property of IAR Systems. The source code may only
+* be used together with the IAR Embedded Workbench. Redistribution and use
+* in source and binary forms, with or without modification, is permitted
+* provided that the following conditions are met:
+*
+* - Redistributions of source code, in whole or in part, must retain the
+* above copyright notice, this list of conditions and the disclaimer below.
+*
+* - IAR Systems’ name may not be used to endorse or promote products
+* derived from this software without specific prior written permission.
+*
+* THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+* WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+* MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+* ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+* WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+* ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+* OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+* ------------------------------------------------------------------------*/
+// ************************************************
+//
+// XLINK Bootloader configuration file for MSP430G2553
+// File generated with MSPBootLinkerGen.pl on 07-11-2018
+//
+// ************************************************
+
+
+/////////////////////////// MCU FLASH ADDRESSES ////////////////////////////////
+//
+// Flash Start Address:
+    -D_FLASH_START=8000
+// Flash End Address: always 0xFFFF
+    -D_FLASH_END=FFFF
+// Flash vector start address:
+    -D_FLASH_VECTORS_START=FFE0
+// Flash Reset vector address: always FFFE
+    -D_FLASH_RESET_VECTOR=FFFE
+////////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////// MCU RAM ADDRESSES //////////////////////////////////
+//
+// RAM Start Address: 
+    -D_RAM_START=200
+// RAM End Address: 
+    -D_RAM_END=5FF
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+///////////////////////// BOOT AREA FLASH ADDRESSES ////////////////////////////
+//
+// Start address of Boot Area
+    -D_BOOT_Start=FA00
+// Size in bytes of Vectors/functions shared by Bootloader with App
+// (i.e. 2 vectors TI_vBoot_PI_Init and TI_vBoot_PI_Poll = 4 Bytes (MSP430) or 8 bytes (MSP320X))
+    -D_BOOT_APPVECTOR_SIZE=0
+// Start Address of table with Vectors/functions shared by boot
+    -D_BOOT_APPVECTOR=(_FLASH_VECTORS_START-_BOOT_APPVECTOR_SIZE)
+// End address of Flash Boot area
+    -D_BOOT_End=(_FLASH_VECTORS_START-1)
+// Start address of Information memory area used by Boot
+    -D_BOOT_Info_Start=1000
+// End address of Information memory area used by Boot
+    -D_BOOT_Info_End=10BF
+// Bootloader Vector Table
+    -D__Boot_VectorTable=(_FLASH_VECTORS_START)
+////////////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////// APP AREA FLASH ADDRESSES /////////////////////////
+//
+// Application Checksum address
+    -D_AppChecksum=_FLASH_START
+    -D_AppChecksum_8=(_FLASH_START+2)
+// Application Start address (after checksum)
+    -D_App_Start=(_FLASH_START+3)
+// Application End Address
+    -D_App_End=(_BOOT_Start-1)
+// Application reset vector
+    -D_App_Reset_Vector=(_App_End-1)
+// Start address of Proxy vector table
+    -D_App_Proxy_Vector_Start=(_App_Reset_Vector-30)
+// End address of Proxy vector table
+    -D_App_Proxy_Vector_End=(_App_Reset_Vector-1)
+// Size of area calculated by CRC (App+ProxyTable)
+    -D_CRC_Size=(_App_End-_App_Start+1)
+////////////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////// BOOT AREA RAM ADDRESSES ///////////////////////////////
+//
+// Start address of Boot RAM
+    -D_BOOT_RAM_START=_RAM_START
+// Address of RAM Password (2B)
+    -D_RAM_PASSWORD_ADDR=_RAM_START
+// Address of Status and Control Area (1B)
+    -D_RAM_STATCTRL_ADDR=(_RAM_PASSWORD_ADDR+2)
+// Address of  State Machine (1B)
+    -D_RAM_CISM_ADDR=(_RAM_STATCTRL_ADDR+1)
+// Address of Callback Structure (2B)
+    -D_RAM_CICALLBACK_ADDR=(_RAM_CISM_ADDR+1)
+// End address of Boot RAM
+    -D_BOOT_RAM_END=(_RAM_CICALLBACK_ADDR+1)
+////////////////////////////////////////////////////////////////////////////////
+
+
+/////////// BOOT-APP RAM ADDRESSES (can be overwritten by App or Boot) /////////
+//
+// Stack size
+    -D_STACK_SIZE=50
+// Heap size
+    -D_DATA16_HEAP_SIZE=0
+// Start address of RAM used by App and Boot
+    -D_SHARED_RAM_START=(_BOOT_RAM_END+1)
+// End address of RAM used by App and Boot
+    -D_SHARED_RAM_END=_RAM_END
+////////////////////////////////////////////////////////////////////////////////
+
+
+// -----------------------------------------------
+// Define cpu
+//
+
+-cmsp430
+
+// -----------------------------------------------
+// Support for placing functions in read/write memory
+//
+-QCODE_I=CODE_ID
+
+// -----------------------------------------------
+// Read/write memory
+//
+-Z(DATA)RAM_PASSWORD=_RAM_PASSWORD_ADDR
+-Z(DATA)RAM_STATCTRL=_RAM_STATCTRL_ADDR
+-Z(DATA)RAM_CISM=_RAM_CISM_ADDR
+-Z(DATA)RAM_CICALLBACK=_RAM_CICALLBACK_ADDR
+-Z(DATA)DATA16_I,DATA16_Z,DATA16_N,TLS16_I,DATA16_HEAP+_DATA16_HEAP_SIZE=_SHARED_RAM_START-_SHARED_RAM_END
+-Z(DATA)CODE_I
+-Z(DATA)CSTACK+_STACK_SIZE#
+
+
+// -----------------------------------------------
+// Read-only memory
+//
+// -------------------------------------
+
+// -------------------------------------
+// Constant data
+//
+-Z(CONST)BOOT_APP_VECTORS=0
+-Z(CONST)DATA16_C,DATA16_ID,TLS16_ID,DIFUNCT,CHECKSUM=_BOOT_Start-_BOOT_End,_BOOT_Info_Start-_BOOT_Info_End
+
+// -------------------------------------
+// Code
+//
+-Z(CODE)CSTART,ISR_CODE,CODE_ID=_BOOT_Start-_BOOT_End,_BOOT_Info_Start-_BOOT_Info_End
+-P(CODE)CODE=_BOOT_Start-_BOOT_End,_BOOT_Info_Start-_BOOT_Info_End
+
+
+// -------------------------------------
+// Interrupt vectors
+//
+-Z(CONST)BOOT_VECTOR_TABLE=_FLASH_VECTORS_START-_FLASH_END
+-Z(CODE)INTVEC=_FLASH_VECTORS_START-_FLASH_END
+-Z(CODE)RESET=_FLASH_RESET_VECTOR-_FLASH_END

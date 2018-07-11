@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\App1_MSPBoot\App1_MSPBoot.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\App2_MSPBoot\App2_MSPBoot.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\MSPBoot\MSPBoot.ewp</path>
+  </project>
+  <batchBuild>
+    <batchDefinition>
+      <name>Build All vBoot Configurations</name>
+      <member>
+        <project>MSPBoot</project>
+        <configuration>BSLBased_UART</configuration>
+      </member>
+    </batchDefinition>
+    <batchDefinition>
+      <name>Builds All configs Apps</name>
+      <member>
+        <project>App2_MSPBoot</project>
+        <configuration>BSLBased_UART</configuration>
+      </member>
+      <member>
+        <project>App1_MSPBoot</project>
+        <configuration>BSLBased_UART</configuration>
+      </member>
+    </batchDefinition>
+  </batchBuild>
+</workspace>
+
+

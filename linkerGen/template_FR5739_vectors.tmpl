@@ -1,0 +1,56 @@
+   /* MSP430 INTERRUPT VECTORS          */
+    .int00       : {}               > INT00
+    .int01       : {}               > INT01
+    .int02       : {}               > INT02
+    .int03       : {}               > INT03
+    .int04       : {}               > INT04
+    .int05       : {}               > INT05
+    .int06       : {}               > INT06
+    .int07       : {}               > INT07
+    .int08       : {}               > INT08
+    .int09       : {}               > INT09
+    .int10       : {}               > INT10
+    .int11       : {}               > INT11
+    .int12       : {}               > INT12
+    .int13       : {}               > INT13
+    .int14       : {}               > INT14
+    .int15       : {}               > INT15
+    .int16       : {}               > INT16
+    .int17       : {}               > INT17
+    .int18       : {}               > INT18
+    .int19       : {}               > INT19
+    .int20       : {}               > INT20
+    .int21       : {}               > INT21
+    .int22       : {}               > INT22
+    .int23       : {}               > INT23
+    .int24       : {}               > INT24
+    .int25       : {}               > INT25
+    .int26       : {}               > INT26
+    .int27       : {}               > INT27
+    .int28       : {}               > INT28
+    .int29       : {}               > INT29
+    .int30       : {}               > INT30
+    RTC          : { * ( .int31 ) } > INT31 type = VECT_INIT
+    PORT4        : { * ( .int32 ) } > INT32 type = VECT_INIT
+    PORT3        : { * ( .int33 ) } > INT33 type = VECT_INIT
+    TIMER2_B1    : { * ( .int34 ) } > INT34 type = VECT_INIT
+    TIMER2_B0    : { * ( .int35 ) } > INT35 type = VECT_INIT
+    PORT2        : { * ( .int36 ) } > INT36 type = VECT_INIT
+    TIMER1_B1    : { * ( .int37 ) } > INT37 type = VECT_INIT
+    TIMER1_B0    : { * ( .int38 ) } > INT38 type = VECT_INIT
+    PORT1        : { * ( .int39 ) } > INT39 type = VECT_INIT
+    TIMER1_A1    : { * ( .int40 ) } > INT40 type = VECT_INIT
+    TIMER1_A0    : { * ( .int41 ) } > INT41 type = VECT_INIT
+    DMA          : { * ( .int42 ) } > INT42 type = VECT_INIT
+    USCI_A1      : { * ( .int43 ) } > INT43 type = VECT_INIT
+    TIMER0_A1    : { * ( .int44 ) } > INT44 type = VECT_INIT
+    TIMER0_A0    : { * ( .int45 ) } > INT45 type = VECT_INIT
+    ADC10        : { * ( .int46 ) } > INT46 type = VECT_INIT
+    USCI_B0      : { * ( .int47 ) } > INT47 type = VECT_INIT
+    USCI_A0      : { * ( .int48 ) } > INT48 type = VECT_INIT
+    WDT          : { * ( .int49 ) } > INT49 type = VECT_INIT
+    TIMER0_B1    : { * ( .int50 ) } > INT50 type = VECT_INIT
+    TIMER0_B0    : { * ( .int51 ) } > INT51 type = VECT_INIT
+    COMP_D       : { * ( .int52 ) } > INT52 type = VECT_INIT
+    UNMI         : { * ( .int53 ) } > INT53 type = VECT_INIT
+    SYSNMI       : { * ( .int54 ) } > INT54 type = VECT_INIT

@@ -1,0 +1,87 @@
+/******************************************************************************/
+/* LINKER COMMAND FILE FOR MSPBoot BOOTLOADER USING <DEVICE>  */
+/* File generated with MSPBootLinkerGen.pl on <DATE> */
+/*----------------------------------------------------------------------------*/
+
+
+/****************************************************************************/
+/* SPECIFY THE SYSTEM MEMORY MAP                                            */
+/****************************************************************************/
+/* The following definitions can be changed to customize the memory map for a different device
+ *   or other adjustments
+ *  Note that the changes should match the definitions used in MEMORY and SECTIONS
+ *
+ */
+/* RAM Memory Addresses */
+__RAM_Start = 0x<RAM_START_ADDR>;                 /* RAM Start */
+__RAM_End = 0x<RAM_END_ADDR>;                     /* RAM End */
+    /* RAM shared between App and Bootloader, must be reserved */
+    PassWd = 0x<RAM_PASSWD_ADDR>;                 /* Password sent by App to force boot  mode */
+    StatCtrl = 0x<RAM_STATCTRL_ADDR>;             /* Status and Control  byte used by Comm */
+    CI_State_Machine = 0x<RAM_CISM_ADDR>;         /*  State machine variable used by Comm */
+    CI_Callback_ptr = 0x<RAM_CALLBACKPTR_ADDR>;   /* Pointer to Comm callback structure */
+    /* Unreserved RAM used for Bootloader or App purposes */
+    _NonReserved_RAM_Start = 0x<RAM_UNUSED_ADDR>; /* Non-reserved RAM */
+
+/* Flash memory addresses */<BOOT1>
+__Flash_Start = 0x<FLASH_START_ADDR>;             /* Start of Flash */
+__Flash_End = 0xFFFF;                           /* End of Flash */
+    /* Reserved Flash locations for Bootloader Area */
+    __Boot_Start = 0x<FLASH_BOOT_START_ADDR>;         /* Boot flash */
+    __Boot_Reset = 0xFFFE;                          /* Boot reset vector */
+    __Boot_VectorTable = 0x<FLASH_VECTORS_ADDR>;      /* Boot vector table */
+    __Boot_SharedCallbacks_Len = <SHARED_VECTORS_SIZE>; /* Length of shared callbacks (2 calls =4B(msp430) or 8B(msp430x) */
+    __Boot_SharedCallbacks = 0x<SHARED_VECTORS_ADDR>; /* Start of Shared callbacks */
+    _BOOT_APPVECTOR = __Boot_SharedCallbacks;       /* Definition for application table             */
+    /* Reserved Flash locations for Application Area */
+    _AppChecksum = (__Flash_Start);                 /* CRC16 of Application                         */
+    _AppChecksum_8 = (__Flash_Start+2);             /* CRC8 of Application                          */
+    _App_Start = (__Flash_Start+3);                 /* Application Area                             */
+    _App_End = (__Boot_Start-1);                    /* End of application area (before boot)        */
+    _CRC_Size = (_App_End - _App_Start +1);         /* Number of bytes calculated for CRC           */
+    _App_Reset_Vector = (__Boot_Start-2);           /* Address of Application reset vector */
+    _App_Proxy_Vector_Start = 0x<PROXY_VECTOR_ADDR>; /* Proxy interrupt table */
+
+/* MEMORY definition, adjust based on definitions above */
+MEMORY
+{
+    SFR                     : origin = 0x0000, length = 0x0010
+    PERIPHERALS_8BIT        : origin = 0x0010, length = 0x00F0
+    PERIPHERALS_16BIT       : origin = 0x0100, length = 0x0100
+    // RAM from _NonReserved_RAM_Start - __RAM_End
+    RAM                     : origin = 0x<RAM_UNUSED_ADDR>, length = 0x<RAM_LEN>
+    INFOBOOT                : origin = 0x<BOOTINFO_START_ADDR>, length = 0x<BOOTINFO_LEN>
+    // Flash from _App_Start -> (APP_PROXY_VECTORS-1)
+    FLASH                   : origin = 0x<APP_FLASH_START>, length = 0x<APP_FLASH_LEN>
+    // Interrupt Proxy table from  _App_Proxy_Vector_Start->(RESET-1)
+    <APP_VECTORS_MEM>
+    // App reset from _App_Reset_Vector
+    RESET                   : origin = 0x<APP_RESET_VECTOR>, length = 0x0002
+}
+
+/****************************************************************************/
+/* SPECIFY THE SECTIONS ALLOCATION INTO MEMORY                              */
+/****************************************************************************/
+
+SECTIONS
+{
+    .bss        : {} > RAM                /* GLOBAL & STATIC VARS              */
+    .data       : {} > RAM                /* GLOBAL & STATIC VARS              */
+    .sysmem     : {} > RAM                /* DYNAMIC MEMORY ALLOCATION AREA    */
+    .stack      : {} > RAM (HIGH)         /* SOFTWARE SYSTEM STACK             */
+
+    .text       : {} >> FLASH |INFOBOOT   /* CODE                 */
+    .cinit      : {} > FLASH |INFOBOOT   /* INITIALIZATION TABLES*/
+    .const      : {} >> FLASH |INFOBOOT   /* CONSTANT DATA        */
+    .cio        : {} > RAM                /* C I/O BUFFER                      */
+
+    <APP_VECTORS_SECTIONS>
+    .reset       : {}               > RESET  /* MSP430 RESET VECTOR                 */
+}
+
+/****************************************************************************/
+/* INCLUDE PERIPHERALS MEMORY MAP                                           */
+/****************************************************************************/
+
+-l <DEVICE>.cmd
+
