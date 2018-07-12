@@ -2,7 +2,7 @@
 #                                                                              #
 #      IAR Universal Linker V6.5.1.95                                          #
 #                                                                              #
-#           Link time     =  12/Jul/2018  12:05:32                             #
+#           Link time     =  12/Jul/2018  12:23:09                             #
 #           Target CPU    =  MSP430                                            #
 #           List file     =  C:\Users\Alex\IarBootloader\BootloaderFirmware\Ta #
 #                            rget\G2553_UART\IAR\App1_MSPBoot\BSLBased_UART\Li #
@@ -17,7 +17,7 @@
 #                            Format: ubrof10                                   #
 #                            UBROF version 10.0.6                              #
 #                            Using library modules for C-SPY (-rt)             #
-#           Command line  =  -f C:\Users\Alex\AppData\Local\Temp\EWE69.tmp     #
+#           Command line  =  -f C:\Users\Alex\AppData\Local\Temp\EW2E9C.tmp    #
 #                            (C:\Users\Alex\IarBootloader\BootloaderFirmware\T #
 #                            arget\G2553_UART\IAR\App1_MSPBoot\BSLBased_UART\O #
 #                            bj\main.r43                                       #
@@ -267,7 +267,8 @@ DATA16_AN
     -------------------------------------------------------------------------
 DATA16_AN
   Relative segment, address: 0120 - 0121 (0x2 bytes), align: 0
-  Segment part 11. ROOT       Intra module refs:   main
+  Segment part 11. ROOT       Intra module refs:   TI_MSPBoot_JumpToBoot (TI_MSPBoot_Mgr_Vectors_G2553)
+                                                   main
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            WDTCTL                  0120 
@@ -286,40 +287,48 @@ DATA16_AN
            =====                   =======         ======
            CALBC1_16MHZ            10F9 
     -------------------------------------------------------------------------
-<CODE> 1 (was CODE)
-  Relative segment, address: 8010 - 80BD (0xae bytes), align: 1
-  Segment part 15.
+DATA16_Z
+  Relative segment, address: 0206 - 0206 (0x1 bytes), align: 0
+  Segment part 15.            Intra module refs:   Timer_A
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           main                    8010            Segment part 19 (?cstart)
+           goToBootCounter         0206 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 80D0 - 80DB (0xc bytes), align: 1
+  Relative segment, address: 801C - 80C7 (0xac bytes), align: 1
   Segment part 16.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Timer_A                 80D0            ProxyVectorTable (TI_MSPBoot_Mgr_Vectors_G2553)
-               interrupt function
+           main                    801C            Segment part 19 (?cstart)
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 80E6 - 80E7 (0x2 bytes), align: 1
+  Relative segment, address: 80C8 - 80F7 (0x30 bytes), align: 1
   Segment part 17.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Dummy_Isr               80E6            ProxyVectorTable (TI_MSPBoot_Mgr_Vectors_G2553)
+           Timer_A                 80C8            ProxyVectorTable (TI_MSPBoot_Mgr_Vectors_G2553)
+               interrupt function
+               calls direct
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: 813A - 813B (0x2 bytes), align: 1
+  Segment part 18.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           Dummy_Isr               813A            ProxyVectorTable (TI_MSPBoot_Mgr_Vectors_G2553)
                interrupt function
     -------------------------------------------------------------------------
 CSTACK
   Segment part 14. NOT NEEDED.
     -------------------------------------------------------------------------
 CODE
-  Segment part 18. NOT NEEDED.
+  Segment part 19. NOT NEEDED.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            ?setjmp_save_r4         
     -------------------------------------------------------------------------
 CODE
-  Segment part 19. NOT NEEDED.
+  Segment part 20. NOT NEEDED.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            ?setjmp_save_r5         
@@ -338,22 +347,25 @@ DATA16_AN
            WDTCTL                  
     -------------------------------------------------------------------------
 RAM_PASSWORD
-  Segment part 3. NOT NEEDED.
+  Relative segment, address: 0200 - 0201 (0x2 bytes), align: 1
+  Segment part 3.             Intra module refs:   TI_MSPBoot_JumpToBoot
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           PassWd                  
+           PassWd                  0200 
     -------------------------------------------------------------------------
 RAM_STATCTRL
-  Segment part 4. NOT NEEDED.
+  Relative segment, address: 0202 - 0202 (0x1 bytes), align: 0
+  Segment part 4.             Intra module refs:   TI_MSPBoot_JumpToBoot
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           StatCtrl                
+           StatCtrl                0202 
     -------------------------------------------------------------------------
-CODE
-  Segment part 6. NOT NEEDED.
+<CODE> 1 (was CODE)
+  Relative segment, address: 80F8 - 810D (0x16 bytes), align: 1
+  Segment part 6.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           TI_MSPBoot_JumpToBoot   
+           TI_MSPBoot_JumpToBoot   80F8            Timer_A (main)
     -------------------------------------------------------------------------
 APP_PROXY_VECTORS
   Relative segment, address: F9CE - F9FD (0x30 bytes), align: 1
@@ -400,11 +412,11 @@ CSTACK
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: 80E4 - 80E5 (0x2 bytes), align: 1
+  Relative segment, address: 8138 - 8139 (0x2 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           __DebugBreak            80E4            __exit (?__exit)
+           __DebugBreak            8138            __exit (?__exit)
     -------------------------------------------------------------------------
 CSTACK
   Segment part 1. NOT NEEDED.
@@ -430,11 +442,11 @@ CSTACK
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: 80BE - 80CF (0x12 bytes), align: 1
+  Relative segment, address: 810E - 811F (0x12 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           __exit                  80BE            Segment part 6 (?_exit)
+           __exit                  810E            Segment part 6 (?_exit)
                                                    _exit (?_exit)
                calls direct
     -------------------------------------------------------------------------
@@ -462,11 +474,11 @@ CSTACK
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: 80DC, align: 1
+  Relative segment, address: 8130, align: 1
   Segment part 0.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           _exit                   80DC            exit (?exit)
+           _exit                   8130            exit (?exit)
     -------------------------------------------------------------------------
 CODE
   Segment part 1. NOT NEEDED.
@@ -493,7 +505,7 @@ CODE
   Segment part 5. NOT NEEDED.
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 80DC - 80DF (0x4 bytes), align: 1
+  Relative segment, address: 8130 - 8133 (0x4 bytes), align: 1
   Segment part 6.             Intra module refs:   _exit
 
     -------------------------------------------------------------------------
@@ -557,7 +569,8 @@ CSTACK
   Segment part 1.
     -------------------------------------------------------------------------
 DATA16_Z
-  Segment part 2. NOT NEEDED.
+  Relative segment, address: 0206, align: 1
+  Segment part 2.
     -------------------------------------------------------------------------
 DATA16_I
   Segment part 3. NOT NEEDED.
@@ -614,10 +627,11 @@ CSTART
                                    
     -------------------------------------------------------------------------
 CSTART
-  Segment part 14. NOT NEEDED.
+  Relative segment, address: 8008 - 8013 (0xc bytes), align: 1
+  Segment part 14.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?cstart_init_zero       
+           ?cstart_init_zero       8008            goToBootCounter (main)
     -------------------------------------------------------------------------
 CSTART
   Segment part 15. NOT NEEDED.
@@ -641,12 +655,12 @@ CSTART
            ?cstart_call_ctors      
     -------------------------------------------------------------------------
 CSTART
-  Relative segment, address: 8008 - 800F (0x8 bytes), align: 1
+  Relative segment, address: 8014 - 801B (0x8 bytes), align: 1
   Segment part 19.            Intra module refs:   Segment part 9
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?cstart_call_main       8008 
-           ?cstart_end             8010 
+           ?cstart_call_main       8014 
+           ?cstart_end             801C 
     -------------------------------------------------------------------------
 CODE_ID
   Segment part 20. NOT NEEDED.
@@ -721,11 +735,11 @@ CODE
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: 80E0 - 80E3 (0x4 bytes), align: 1
+  Relative segment, address: 8134 - 8137 (0x4 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           exit                    80E0            Segment part 19 (?cstart)
+           exit                    8134            Segment part 19 (?cstart)
                calls direct
     -------------------------------------------------------------------------
 CSTACK
@@ -802,11 +816,12 @@ CSTACK
 
   SEGMENTS IN THE MODULE
   ======================
-CODE
-  Segment part 2. NOT NEEDED.
+<CODE> 1 (was CODE)
+  Relative segment, address: 8120 - 812F (0x10 bytes), align: 1
+  Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           __data16_memzero        
+           __data16_memzero        8120            ?cstart_init_zero (?cstart)
     -------------------------------------------------------------------------
 CODE
   Segment part 3. NOT NEEDED.
@@ -1043,16 +1058,17 @@ Module                         CODE      DATA      CONST
 ?__dbg_break                      2
 ?__exit                          18
 ?_exit                            4
-?cstart                          12
+?cstart                          24
 ?exit                             4
+?memzero                         16
 ?reset_vector                     2
-TI_MSPBoot_Mgr_Vectors_G2553                          48
-main                            188            14
+TI_MSPBoot_Mgr_Vectors_G2553     22      3            48
+main                            222      1     14
   + shared                                      2
 N/A (command line)                      80
 N/A (alignment)
 ------                          ---     --     --     --
-Total:                          230     80     16     48
+Total:                          314     84     16     48
 
 
                 ****************************************
@@ -1072,10 +1088,14 @@ DATA16_AN                              0002 - 0002               1   rel    0
                                        0120 - 0121               2 
                                        0160 - 0161               2 
                                        0172 - 0173               2 
+RAM_PASSWORD                           0200 - 0201               2   rel    1
+RAM_STATCTRL                           0202 - 0202               1   rel    0
+DATA16_I                                  0206                       dse    0
+DATA16_Z                               0206 - 0206               1   rel    1
 CSTACK                                 05B0 - 05FF              50   rel    1
 DATA16_AN                              10F8 - 10F9               2   rel    0
-CSTART                                 8004 - 800F               C   rel    1
-<CODE> 1                               8010 - 80E7              D8   rel    1
+CSTART                                 8004 - 801B              18   rel    1
+<CODE> 1                               801C - 813B             120   rel    1
 APP_PROXY_VECTORS                      F9CE - F9FD              30   rel    1
 RESET                                  F9FE - F9FF               2   rel    1
 
@@ -1085,8 +1105,8 @@ RESET                                  F9FE - F9FF               2   rel    1
                 *                                      *
                 ****************************************
 
- 230 bytes of CODE  memory
-  80 bytes of DATA  memory (+ 16 absolute )
+ 314 bytes of CODE  memory
+  84 bytes of DATA  memory (+ 16 absolute )
   48 bytes of CONST memory
 
 Errors: none

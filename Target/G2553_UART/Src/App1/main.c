@@ -2,17 +2,7 @@
 #include <stdint.h>
 #include "TI_MSPBoot_Mgr_Vectors.h"
 
-/******************************************************************************
- *
- * @brief   Main function
- *  This example application performs the following functions:
- *  - Toggle LED1 (P1.0) at startup (to indicate App1 execution)
- *  - Toggles LED1 using a timer periodic interrupt (demonstrates vector redirection)
- *  - Forces Boot mode when button S2 (P1.3) is pressed (demonstrates vector
- *      redirection and Boot Mode call
- *
- * @return  none
- *****************************************************************************/
+uint8_t  goToBootCounter =0;
 int main( void )
 {
   // Stop watchdog timer to prevent time out reset
@@ -20,7 +10,7 @@ int main( void )
 
     //------------------------------
     P1DIR |= BIT7;
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < 4; i++){
       __delay_cycles(500000);
       P1OUT ^= BIT7;
     }
@@ -76,7 +66,11 @@ __interrupt void Timer_A (void)
 {
   TACTL &= ~TAIFG;
   P1OUT ^= BIT7;                           
-
+  goToBootCounter++;
+  if(goToBootCounter > 10){
+    goToBootCounter = 0;
+    TI_MSPBoot_JumpToBoot();
+  }
 }
 
 /******************************************************************************

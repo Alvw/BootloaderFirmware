@@ -24,17 +24,22 @@
         <Counter1>0000000000000000000000000000000000000000000000000000000000000000</Counter1>
     </EEM_Cycle_Counter_1>
     <DebugChecksum>
-        <Checksum>2412512399</Checksum>
+        <Checksum>833731534</Checksum>
     </DebugChecksum>
     <LogFile>
         <LoggingEnabled>_ 0</LoggingEnabled>
         <LogFile>_ ""</LogFile>
         <Category>_ 0</Category>
     </LogFile>
+    <TermIOLog>
+        <LoggingEnabled>_ 0</LoggingEnabled>
+        <LogFile>_ ""</LogFile>
+    </TermIOLog>
     <Breakpoints>
         <Count>0</Count>
     </Breakpoints>
     <FET>
+        <Clock_mode>38</Clock_mode>
         <Secure_Password />
         <Extended_Clock_Control_Enable>1</Extended_Clock_Control_Enable>
         <Advanced_Extended_Clock_Control>0</Advanced_Extended_Clock_Control>
