@@ -20,21 +20,41 @@ int main( void )
 
     //------------------------------
     P1DIR |= BIT7;
-    for(int i = 0; i < 5; i++){
+    for(int i = 0; i < 10; i++){
       __delay_cycles(500000);
       P1OUT ^= BIT7;
     }
     P1OUT &= ~BIT7;
 //-----------------------------------------
 
-   
+     // CLOCK
+  BCSCTL1 = CALBC1_16MHZ;                    
+  DCOCTL = CALDCO_16MHZ;
+  BCSCTL2 |= DIVS_3;                        // SMCLK / 8;
+  
+  //SMCLC output pin
+  P1DIR |= BIT4; //P1.4 = output direction
+  P1SEL |= BIT4; //P1.4 = SMCLK output function
+  
+  BCSCTL1 |= XTS;                           // ACLK = LFXT1 = HF XTAL
+  BCSCTL3 |= LFXT1S1;                       // 3 – 16MHz crystal or resonator
+  volatile unsigned int i;
+  do {
+    IFG1 &= ~OFIFG;                         // Clear OSCFault flag
+    for (i = 0xFF; i > 0; i--);             // Time for flag to set
+  } while (IFG1 & OFIFG);                     // OSCFault flag still set?
+  BCSCTL2 |= SELS + DIVS_3;                        // SMCLK = LFXT1 / 8; 
 
-    // Start Timer interrupt
-    CCTL0 = CCIE;                             // CCR0 interrupt enabled
-    CCR0 = 1000-1;
-    TACTL = TASSEL_1 + MC_1;                  // ACLK, upmode
+   // Timer
+  TACTL |= TACLR;
+  TACTL = TASSEL_2;     // SMCLK
+  TACTL |= ID_2 + ID_1; // 1:8  
+  TACCR0 = 0xffff;
+  TACTL |= TAIE;
+  TACTL &= ~TAIFG;      
+  TACTL |= MC_1;
 
-    __bis_SR_register(LPM3_bits + GIE);
+    __bis_SR_register(LPM1_bits + GIE);
 
 
   return 0;
@@ -50,10 +70,13 @@ int main( void )
  *
  * @return  none
  *****************************************************************************/
+//#pragma vector = TIMERA1_VECTOR
+//__interrupt void TimerA_ISR(void)
 __interrupt void Timer_A (void)
 {
-  P1OUT ^= BIT7;                            // Toggle P1.0
-  CCTL0 &= ~CCIFG;
+  TACTL &= ~TAIFG;
+  P1OUT ^= BIT7;                           
+
 }
 
 /******************************************************************************
@@ -80,7 +103,6 @@ __interrupt void Timer_A (void)
  *****************************************************************************/
 __interrupt void Dummy_Isr(void)
 {
-    while(1)
-        ;
+    while(1);
 }
 

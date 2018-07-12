@@ -79,8 +79,8 @@ const uint16_t ProxyVectorTable[] =
     0x4030, (uint16_t) Dummy_Isr,           // APP_PROXY_VECTOR(2) ADC10
     0x4030, (uint16_t) Dummy_Isr,           // APP_PROXY_VECTOR(3) USCI I2C TX/RX
     0x4030, (uint16_t) Dummy_Isr,           // APP_PROXY_VECTOR(4) USCI I2C STAT
-    0x4030, (uint16_t) Dummy_Isr,           // APP_PROXY_VECTOR(5) TA0_1
-    0x4030, (uint16_t) Timer_A,             // APP_PROXY_VECTOR(6) T0_0
+    0x4030, (uint16_t) Timer_A,           // APP_PROXY_VECTOR(5) TA0_1
+    0x4030, (uint16_t) Dummy_Isr,             // APP_PROXY_VECTOR(6) T0_0
     0x4030, (uint16_t) Dummy_Isr,           // APP_PROXY_VECTOR(7) WDT
     0x4030, (uint16_t) Dummy_Isr,           // APP_PROXY_VECTOR(8) COMP_A
     0x4030, (uint16_t) Dummy_Isr,           // APP_PROXY_VECTOR(9) TA1_1

@@ -5,194 +5,113 @@
     <configuration>
         <name>BSLBased_UART</name>
         <outputs>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\subroutine.pbi</file>
+            <file>$PROJ_DIR$\..\..\Src\App1\main.c</file>
+            <file>$PROJ_DIR$\..\..\Src\App1\TI_MSPBoot_Mgr_Vectors.h</file>
+            <file>$PROJ_DIR$\Config\lnk_msp430G2553_UART_1KB_App.xcl</file>
             <file>$PROJ_DIR$\BSLBased_UART\Exe\App1_MSPBoot.txt</file>
+            <file>$PROJ_DIR$\..\..\Src\App1\TI_MSPBoot_Mgr_Vectors_G2553.c</file>
             <file>$PROJ_DIR$\BSLBased_UART\Obj\rf.__cstat.et</file>
             <file>$PROJ_DIR$\..\..\Src\App1\subroutine.h</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\PacketUtil.pbi</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\ADC10.__cstat.et</file>
-            <file>$TOOLKIT_DIR$\inc\dlib\c\string.h</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\ADC10.r43</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\subroutine.r43</file>
-            <file>$TOOLKIT_DIR$\inc\in430.h</file>
-            <file>$PROJ_DIR$\..\..\Src\App1\PacketUtil.h</file>
-            <file>$PROJ_DIR$\..\..\Src\App1\ads1292.h</file>
-            <file>$PROJ_DIR$\..\..\Src\App1\ADC10.c</file>
-            <file>$PROJ_DIR$\..\..\Src\App1\rf.h</file>
-            <file>$PROJ_DIR$\..\..\Src\App1\ADC10.h</file>
-            <file>$PROJ_DIR$\..\..\Src\App1\define.h</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\PacketUtil.__cstat.et</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\ads1292.pbi</file>
-            <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.h</file>
-            <file>$PROJ_DIR$\..\..\Src\App1\subroutine.c</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_Mgr_Vectors_G2553.r43</file>
-            <file>$PROJ_DIR$\..\..\Src\App1\ads1292.c</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\PacketUtil.r43</file>
-            <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
-            <file>$PROJ_DIR$\..\..\Src\App1\rf.c</file>
-            <file>$PROJ_DIR$\..\..\Src\App1\PacketUtil.c</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\main.pbi</file>
-            <file>$PROJ_DIR$\..\..\Src\App1\main.c</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\subroutine.pbi</file>
             <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\subroutine.__cstat.et</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\ads1292.__cstat.et</file>
-            <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
             <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\main.__cstat.et</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\rf.r43</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_Mgr_Vectors_G2553.__cstat.et</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\rf.pbi</file>
-            <file>$PROJ_DIR$\BSLBased_UART\List\App1_MSPBoot.map</file>
             <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+            <file>$PROJ_DIR$\BSLBased_UART\List\App1_MSPBoot.map</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.r43</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\ads1292.__cstat.et</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\main.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_Mgr_Vectors_G2553.__cstat.et</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\rf.r43</file>
             <file>$PROJ_DIR$\BSLBased_UART\Obj\main.r43</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\subroutine.__cstat.et</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\main.pbi</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\rf.pbi</file>
             <file>$TOOLKIT_DIR$\inc\msp430f2274.h</file>
             <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_Mgr_Vectors_G2553.pbi</file>
             <file>$PROJ_DIR$\BSLBased_UART\Obj\ADC10.pbi</file>
-            <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.r43</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Exe\App1_MSPBoot.d43</file>
-            <file>$TOOLKIT_DIR$\inc\msp430.h</file>
-            <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
             <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
-            <file>$TOOLKIT_DIR$\inc\dlib\c\stdint.h</file>
             <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
+            <file>$TOOLKIT_DIR$\inc\msp430.h</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\stdint.h</file>
             <file>$PROJ_DIR$\BSLBased_UART\Obj\ads1292.r43</file>
             <file>$PROJ_DIR$\BSLBased_UART\Obj\App1_MSPBoot.pbd</file>
-            <file>$PROJ_DIR$\Config\lnk_msp430G2553_UART_1KB_App.xcl</file>
-            <file>$PROJ_DIR$\..\..\Src\App1\TI_MSPBoot_Mgr_Vectors.h</file>
-            <file>$PROJ_DIR$\..\..\Src\App1\TI_MSPBoot_Mgr_Vectors_G2553.c</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Exe\App1_MSPBoot.d43</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
             <file>$PROJ_DIR$\BSLBased_UART\Exe\App1_MSPBoot.ulp</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_Mgr_Vectors_G2553.r43</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\PacketUtil.pbi</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\subroutine.r43</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\ads1292.pbi</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\PacketUtil.r43</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\ADC10.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\inc\in430.h</file>
+            <file>$PROJ_DIR$\..\..\Src\App1\PacketUtil.h</file>
+            <file>$PROJ_DIR$\..\..\Src\App1\ADC10.c</file>
+            <file>$PROJ_DIR$\..\..\Src\App1\define.h</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.h</file>
+            <file>$PROJ_DIR$\..\..\Src\App1\rf.c</file>
+            <file>$PROJ_DIR$\..\..\Src\App1\rf.h</file>
+            <file>$PROJ_DIR$\..\..\Src\App1\ads1292.h</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\ADC10.r43</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\PacketUtil.__cstat.et</file>
+            <file>$PROJ_DIR$\..\..\Src\App1\PacketUtil.c</file>
+            <file>$PROJ_DIR$\..\..\Src\App1\subroutine.c</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\string.h</file>
+            <file>$PROJ_DIR$\..\..\Src\App1\ads1292.c</file>
+            <file>$PROJ_DIR$\..\..\Src\App1\ADC10.h</file>
         </outputs>
         <file>
             <name>[ROOT_NODE]</name>
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 44 37 1</file>
+                    <file> 31 11 3</file>
                 </tool>
                 <tool>
                     <name>ULP430</name>
-                    <file> 55</file>
+                    <file> 33</file>
                 </tool>
             </outputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\..\Src\App1\ADC10.c</name>
+            <name>$PROJ_DIR$\..\..\Src\App1\main.c</name>
             <outputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 7</file>
+                    <file> 18</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 42</file>
+                    <file> 20</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 5</file>
+                    <file> 14</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 45 40 9 47 14 15</file>
+                    <file> 27 22 41 25 28 26 10 32 45 9 15 8 1</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 9 40 47 45 14 15</file>
+                    <file> 22 41 8 28 26 32 10 27 1 25 15 45 9</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\..\Src\App1\subroutine.c</name>
+            <name>$PROJ_DIR$\..\..\Src\App1\TI_MSPBoot_Mgr_Vectors_G2553.c</name>
             <outputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 8</file>
+                    <file> 35</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 0</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 29</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 45 40 9 47 3 15</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 9 40 3 45 47 15</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\..\Src\App1\ads1292.c</name>
-            <outputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 50</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 17</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 30</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 45 40 9 47 11 15</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 9 11 40 45 47 15</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\..\Src\App1\rf.c</name>
-            <outputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 34</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 36</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 2</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 45 40 9 47 13 15 6 49 38 46 18 32 31 28 23 3</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 46 9 38 6 49 13 40 47 15 23 28 45 3 31 18 32</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\..\Src\App1\PacketUtil.c</name>
-            <outputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 22</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 4</file>
+                    <file> 23</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
@@ -202,38 +121,11 @@
             <inputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 45 40 9 47 10 15 6 49 38 46 18 32 31 28 23</file>
+                    <file> 27 22 41 25 28 26 10 32 45 9 15 8 1</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 46 47 15 38 6 9 49 10 40 23 28 45 31 18 32</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\..\Src\App1\main.c</name>
-            <outputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 39</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 26</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 33</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 45 40 9 47 48 49 38 46 18 32 31 28 53</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 40 9 28 48 49 46 38 45 53 47 31 18 32</file>
+                    <file> 22 41 8 28 26 32 10 27 1 25 15 45 9</file>
                 </tool>
             </inputs>
         </file>
@@ -242,40 +134,148 @@
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 37 1</file>
+                    <file> 11 3</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 52 39 20 43</file>
+                    <file> 2 18 35 12</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\..\Src\App1\TI_MSPBoot_Mgr_Vectors_G2553.c</name>
+            <name>$PROJ_DIR$\..\..\Src\App1\ADC10.c</name>
             <outputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 20</file>
+                    <file> 49</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 41</file>
+                    <file> 24</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 35</file>
+                    <file> 40</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 45 40 9 47 48 49 38 46 18 32 31 28 53</file>
+                    <file> 27 22 41 25 55 44</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 40 9 28 48 49 46 38 45 53 47 31 18 32</file>
+                    <file> 41 22 25 27 55 44</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Src\App1\rf.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 17</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 21</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 5</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 27 22 41 25 47 44 53 26 10 32 45 9 15 8 34 6</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 32 41 10 53 26 47 22 25 44 34 8 27 6 15 45 9</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Src\App1\PacketUtil.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 39</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 36</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 50</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 27 22 41 25 42 44 53 26 10 32 45 9 15 8 34</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 32 25 44 10 53 41 26 42 22 34 8 27 15 45 9</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Src\App1\subroutine.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 37</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 7</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 19</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 27 22 41 25 6 44</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 41 22 6 27 25 44</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Src\App1\ads1292.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 29</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 38</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 13</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 27 22 41 25 48 44</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 41 48 22 27 25 44</file>
                 </tool>
             </inputs>
         </file>
@@ -284,19 +284,19 @@
             <tool>ICC430</tool>
         </forcedrebuild>
         <forcedrebuild>
-            <name>$PROJ_DIR$\..\..\Src\App1\subroutine.c</name>
-            <tool>ICC430</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\..\..\Src\App1\ads1292.c</name>
-            <tool>ICC430</tool>
-        </forcedrebuild>
-        <forcedrebuild>
             <name>$PROJ_DIR$\..\..\Src\App1\rf.c</name>
             <tool>ICC430</tool>
         </forcedrebuild>
         <forcedrebuild>
             <name>$PROJ_DIR$\..\..\Src\App1\PacketUtil.c</name>
+            <tool>ICC430</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\..\..\Src\App1\subroutine.c</name>
+            <tool>ICC430</tool>
+        </forcedrebuild>
+        <forcedrebuild>
+            <name>$PROJ_DIR$\..\..\Src\App1\ads1292.c</name>
             <tool>ICC430</tool>
         </forcedrebuild>
     </configuration>

@@ -5,182 +5,101 @@
     <configuration>
         <name>BSLBased_UART</name>
         <outputs>
-            <file>$PROJ_DIR$\..\App1_MSPBoot\BSLBased_UART\Exe\App1_MSPBoot.txt</file>
-            <file>$PROJ_DIR$\..\..\Src\MSPBoot\Comm\PHY_DataLink\TI_MSPBoot_CI_PHYDL.h</file>
-            <file>$PROJ_DIR$\..\..\Src\MSPBoot\AppMgr\TI_MSPBoot_AppMgr.h</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\main.r43</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_CI_PHYDL_USCI_UART.r43</file>
             <file>$PROJ_DIR$\..\..\Src\MSPBoot\AppMgr\Crc.h</file>
-            <file>$PROJ_DIR$\..\..\Src\MSPBoot\AppMgr\TI_MSPBoot_AppMgr.c</file>
-            <file>$PROJ_DIR$\..\..\Src\MSPBoot\MI\TI_MSPBoot_MI_Flash.c</file>
-            <file>$PROJ_DIR$\..\..\Src\MSPBoot\TI_MSPBoot_Config.h</file>
-            <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.h</file>
-            <file>$TOOLKIT_DIR$\inc\dlib\c\stdint.h</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\Crc.__cstat.et</file>
             <file>$PROJ_DIR$\Config\lnk_msp430G2553_UART_1KB_Boot.xcl</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_VecRed_G2x53.pbi</file>
             <file>$PROJ_DIR$\..\..\Src\MSPBoot\AppMgr\Crc.c</file>
-            <file>$PROJ_DIR$\..\..\Src\MSPBoot\cstartup.s43</file>
-            <file>$PROJ_DIR$\..\..\Src\MSPBoot\main.c</file>
-            <file>$PROJ_DIR$\..\..\Src\MSPBoot\Comm\NWK_APP\TI_MSPBoot_CI_NWK_APP.h</file>
-            <file>$PROJ_DIR$\..\..\Src\MSPBoot\Comm\TI_MSPBoot_CI.h</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_MI_Flash.r43</file>
-            <file>$TOOLKIT_DIR$\inc\cfi.m43</file>
+            <file>$PROJ_DIR$\..\..\Src\MSPBoot\AppMgr\TI_MSPBoot_AppMgr.c</file>
             <file>$PROJ_DIR$\..\..\Src\MSPBoot\AppMgr\TI_MSPBoot_VecRed_G2x53.c</file>
-            <file>$PROJ_DIR$\..\..\Src\MSPBoot\Comm\NWK_APP\TI_MSPBoot_CI_NWK_APP_BSL_UART.c</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_CI_PHYDL_USCI_UART.__cstat.et</file>
-            <file>$PROJ_DIR$\..\..\Src\MSPBoot\MI\TI_MSPBoot_MI.h</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_CI_NWK_APP_BSL_UART.pbi</file>
-            <file>$PROJ_DIR$\..\..\Src\MSPBoot\Comm\PHY_DataLink\TI_MSPBoot_CI_PHYDL_USCI_UART.c</file>
+            <file>$PROJ_DIR$\..\..\Src\MSPBoot\AppMgr\TI_MSPBoot_AppMgr.h</file>
+            <file>$PROJ_DIR$\..\..\Src\App1\main.c</file>
             <file>$PROJ_DIR$\..\..\Src\MSPBoot\TI_MSPBoot_Common.h</file>
-            <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_AppMgr.r43</file>
+            <file>$PROJ_DIR$\..\..\Src\MSPBoot\MI\TI_MSPBoot_MI.h</file>
+            <file>$PROJ_DIR$\..\App1_MSPBoot\BSLBased_UART\Exe\App1_MSPBoot.txt</file>
+            <file>$PROJ_DIR$\..\..\Src\MSPBoot\MI\TI_MSPBoot_MI_Flash.c</file>
+            <file>$TOOLKIT_DIR$\inc\cfi.m43</file>
             <file>$PROJ_DIR$\BSLBased_UART\Obj\main.__cstat.et</file>
             <file>$TOOLKIT_DIR$\inc\msp430f2274.h</file>
+            <file>$PROJ_DIR$\..\..\Src\MSPBoot\main.c</file>
+            <file>$PROJ_DIR$\..\..\Src\MSPBoot\Comm\PHY_DataLink\TI_MSPBoot_CI_PHYDL_USCI_UART.c</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_CI_PHYDL_USCI_UART.r43</file>
             <file>$PROJ_DIR$\BSLBased_UART\Obj\MSPBoot.pbd</file>
+            <file>$PROJ_DIR$\..\..\Src\MSPBoot\Comm\TI_MSPBoot_CI.h</file>
             <file>$PROJ_DIR$\BSLBased_UART\Obj\cstartup.r43</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\Crc.pbi</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.h</file>
             <file>$TOOLKIT_DIR$\inc\msp430.h</file>
+            <file>$PROJ_DIR$\..\..\Src\MSPBoot\cstartup.s43</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\stdint.h</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_CI_PHYDL_USCI_UART.__cstat.et</file>
+            <file>$PROJ_DIR$\..\..\Src\MSPBoot\Comm\NWK_APP\TI_MSPBoot_CI_NWK_APP.h</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_CI_NWK_APP_BSL_UART.pbi</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\main.r43</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_VecRed_G2x53.pbi</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_AppMgr.r43</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\Crc.pbi</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\Crc.__cstat.et</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_MI_Flash.r43</file>
+            <file>$PROJ_DIR$\..\..\Src\MSPBoot\Comm\PHY_DataLink\TI_MSPBoot_CI_PHYDL.h</file>
             <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_VecRed_G2x53.r43</file>
-            <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
-            <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.r43</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_MI_Flash.__cstat.et</file>
+            <file>$PROJ_DIR$\..\..\Src\MSPBoot\Comm\NWK_APP\TI_MSPBoot_CI_NWK_APP_BSL_UART.c</file>
+            <file>$PROJ_DIR$\..\..\Src\MSPBoot\TI_MSPBoot_Config.h</file>
             <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_VecRed_G2x53.__cstat.et</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_AppMgr.pbi</file>
-            <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_CI_NWK_APP_BSL_UART.__cstat.et</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Exe\MSPBoot.ulp</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Exe\MSPBoot.txt</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\Crc.r43</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\main.pbi</file>
+            <file>$TOOLKIT_DIR$\inc\in430.h</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_MI_Flash.pbi</file>
             <file>$TOOLKIT_DIR$\inc\macros.m43</file>
-            <file>$PROJ_DIR$\BSLBased_UART\List\MSPBoot.map</file>
             <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_CI_NWK_APP_BSL_UART.r43</file>
             <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Exe\MSPBoot.txt</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\main.pbi</file>
-            <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_MI_Flash.pbi</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\Crc.r43</file>
-            <file>$TOOLKIT_DIR$\inc\in430.h</file>
             <file>$PROJ_DIR$\BSLBased_UART\Exe\MSPBoot.d43</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_AppMgr.__cstat.et</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_MI_Flash.__cstat.et</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_AppMgr.pbi</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Exe\MSPBoot.ulp</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_CI_NWK_APP_BSL_UART.__cstat.et</file>
+            <file>$PROJ_DIR$\BSLBased_UART\List\MSPBoot.map</file>
+            <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
             <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_CI_PHYDL_USCI_UART.pbi</file>
             <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
-            <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_AppMgr.__cstat.et</file>
+            <file>$PROJ_DIR$\BSLBased_UART\Obj\TI_MSPBoot_VecRed_G2x53.r43</file>
+            <file>$TOOLKIT_DIR$\lib\dlib\dl430fn.r43</file>
         </outputs>
         <file>
-            <name>[ROOT_NODE]</name>
+            <name>$PROJ_DIR$\..\..\Src\MSPBoot\AppMgr\Crc.c</name>
             <outputs>
                 <tool>
-                    <name>XLINK</name>
-                    <file> 56 47 50</file>
+                    <name>ICC430</name>
+                    <file> 40</file>
                 </tool>
                 <tool>
-                    <name>ULP430</name>
-                    <file> 45</file>
+                    <name>BICOMP</name>
+                    <file> 31</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 32</file>
                 </tool>
             </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 21 13 42 35 7 23 53 49 46 20 56 26 58 37</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 13 42 23 58 7 53 46 49 21 35 26 20 56 37</file>
+                </tool>
+            </inputs>
         </file>
         <file>
             <name>$PROJ_DIR$\..\..\Src\MSPBoot\AppMgr\TI_MSPBoot_AppMgr.c</name>
             <outputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 29</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 42</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 59</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 35 31 55 36 27 10 43 38 49 9 52 28 58 8 2 5</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 31 55 10 58 27 43 49 38 35 2 36 28 9 52 5 8</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\..\Src\MSPBoot\MI\TI_MSPBoot_MI_Flash.c</name>
-            <outputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 19</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 53</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 40</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 35 31 55 36 27 10 43 38 49 9 52 28 58 8 24</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 31 55 10 58 27 43 49 38 35 24 36 28 9 52 8</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\..\Src\MSPBoot\AppMgr\Crc.c</name>
-            <outputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 54</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 34</file>
-                </tool>
-                <tool>
-                    <name>__cstat</name>
-                    <file> 11</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 35 31 55 36 27 10 43 38 49 9 52 28 58 8</file>
-                </tool>
-                <tool>
-                    <name>BICOMP</name>
-                    <file> 31 55 10 58 27 43 49 38 35 36 28 9 52 8</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\..\Src\MSPBoot\cstartup.s43</name>
-            <outputs>
-                <tool>
-                    <name>A430</name>
-                    <file> 33</file>
-                </tool>
-            </outputs>
-            <inputs>
-                <tool>
-                    <name>A430</name>
-                    <file> 46 20</file>
-                </tool>
-            </inputs>
-        </file>
-        <file>
-            <name>$PROJ_DIR$\..\..\Src\MSPBoot\main.c</name>
-            <outputs>
-                <tool>
-                    <name>ICC430</name>
-                    <file> 3</file>
+                    <file> 30</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
@@ -188,17 +107,17 @@
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 30</file>
+                    <file> 48</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 35 31 55 36 27 10 43 38 49 9 52 28 58 8 18 1 17 2</file>
+                    <file> 21 13 42 35 7 23 53 49 46 20 56 26 58 37 5 0</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 31 55 10 58 27 43 49 38 35 18 36 28 9 52 2 8 1 17</file>
+                    <file> 13 42 23 58 7 53 46 49 21 5 35 26 20 56 0 37</file>
                 </tool>
             </inputs>
         </file>
@@ -207,52 +126,79 @@
             <outputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 37</file>
+                    <file> 59</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 13</file>
+                    <file> 29</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 41</file>
+                    <file> 38</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 35 31 55 36 27 10 43 38 49 9 52 28 58 8 2</file>
+                    <file> 21 13 42 35 7 23 53 49 46 20 56 26 58 37 5</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 31 55 10 58 27 43 49 38 35 2 36 28 9 52 8</file>
+                    <file> 13 42 23 58 7 53 46 49 21 5 35 26 20 56 37</file>
                 </tool>
             </inputs>
         </file>
         <file>
-            <name>$PROJ_DIR$\..\..\Src\MSPBoot\Comm\NWK_APP\TI_MSPBoot_CI_NWK_APP_BSL_UART.c</name>
+            <name>$PROJ_DIR$\..\..\Src\MSPBoot\MI\TI_MSPBoot_MI_Flash.c</name>
             <outputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 48</file>
+                    <file> 33</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 25</file>
+                    <file> 43</file>
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 44</file>
+                    <file> 50</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 35 31 55 36 27 10 43 38 49 9 52 28 58 8 18 1 17 24 5</file>
+                    <file> 21 13 42 35 7 23 53 49 46 20 56 26 58 37 8</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 31 36 5 18 55 58 1 27 24 8 43 49 38 35 10 28 9 52 17</file>
+                    <file> 13 42 23 58 7 53 46 49 21 8 35 26 20 56 37</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Src\MSPBoot\main.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 28</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 41</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 12</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 21 13 42 35 7 23 53 49 46 20 56 26 58 37 18 34 25 5</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 13 42 23 58 7 53 46 49 21 18 35 26 20 56 5 37 34 25</file>
                 </tool>
             </inputs>
         </file>
@@ -261,7 +207,7 @@
             <outputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 4</file>
+                    <file> 16</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
@@ -269,32 +215,87 @@
                 </tool>
                 <tool>
                     <name>__cstat</name>
-                    <file> 23</file>
+                    <file> 24</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 35 31 55 36 27 10 43 38 49 9 52 28 58 8 18 1 17 2</file>
+                    <file> 21 13 42 35 7 23 53 49 46 20 56 26 58 37 18 34 25 5</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 31 55 10 58 27 43 49 38 35 18 36 28 9 52 2 8 1 17</file>
+                    <file> 13 42 23 58 7 53 46 49 21 18 35 26 20 56 5 37 34 25</file>
                 </tool>
             </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Src\MSPBoot\cstartup.s43</name>
+            <outputs>
+                <tool>
+                    <name>A430</name>
+                    <file> 19</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>A430</name>
+                    <file> 44 11</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\..\Src\MSPBoot\Comm\NWK_APP\TI_MSPBoot_CI_NWK_APP_BSL_UART.c</name>
+            <outputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 45</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 27</file>
+                </tool>
+                <tool>
+                    <name>__cstat</name>
+                    <file> 54</file>
+                </tool>
+            </outputs>
+            <inputs>
+                <tool>
+                    <name>ICC430</name>
+                    <file> 21 13 42 35 7 23 53 49 46 20 56 26 58 37 18 34 25 8 0</file>
+                </tool>
+                <tool>
+                    <name>BICOMP</name>
+                    <file> 13 35 0 18 42 58 34 7 8 37 53 46 49 21 23 26 20 56 25</file>
+                </tool>
+            </inputs>
+        </file>
+        <file>
+            <name>[ROOT_NODE]</name>
+            <outputs>
+                <tool>
+                    <name>XLINK</name>
+                    <file> 47 55 39</file>
+                </tool>
+                <tool>
+                    <name>ULP430</name>
+                    <file> 52</file>
+                </tool>
+            </outputs>
         </file>
         <file>
             <name>$PROJ_DIR$\BSLBased_UART\Exe\MSPBoot.d43</name>
             <outputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 47 50</file>
+                    <file> 55 39</file>
                 </tool>
             </outputs>
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 12 54 33 3 29 48 4 19 37 39</file>
+                    <file> 1 40 19 28 30 45 16 33 59 60</file>
                 </tool>
             </inputs>
         </file>
