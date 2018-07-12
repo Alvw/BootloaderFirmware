@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
     <fileVersion>2</fileVersion>
-    <fileChecksum>164887011</fileChecksum>
+    <fileChecksum>4119698970</fileChecksum>
     <configuration>
         <name>BSLBased_UART</name>
         <outputs>
@@ -95,11 +95,11 @@
             <inputs>
                 <tool>
                     <name>ICC430</name>
-                    <file> 28 23 42 26 29 27 11 33 46 10 16 9 1</file>
+                    <file> 28 23 42 26 6 45 48 49 56 43 1</file>
                 </tool>
                 <tool>
                     <name>BICOMP</name>
-                    <file> 23 42 9 29 27 33 11 28 1 26 16 46 10</file>
+                    <file> 56 48 1 42 45 6 49 43 23 28 26</file>
                 </tool>
             </inputs>
         </file>
@@ -141,7 +141,7 @@
             <inputs>
                 <tool>
                     <name>XLINK</name>
-                    <file> 2 19 36 13</file>
+                    <file> 2 50 30 19 40 18 38 36 13</file>
                 </tool>
             </inputs>
         </file>
@@ -280,25 +280,5 @@
                 </tool>
             </inputs>
         </file>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\..\..\Src\App1\ADC10.c</name>
-            <tool>ICC430</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\..\..\Src\App1\rf.c</name>
-            <tool>ICC430</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\..\..\Src\App1\PacketUtil.c</name>
-            <tool>ICC430</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\..\..\Src\App1\subroutine.c</name>
-            <tool>ICC430</tool>
-        </forcedrebuild>
-        <forcedrebuild>
-            <name>$PROJ_DIR$\..\..\Src\App1\ads1292.c</name>
-            <tool>ICC430</tool>
-        </forcedrebuild>
     </configuration>
 </project>
