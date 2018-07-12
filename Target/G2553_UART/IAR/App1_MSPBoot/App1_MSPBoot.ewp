@@ -433,7 +433,7 @@
                 </option>
                 <option>
                     <name>CCOptLevel</name>
-                    <state>1</state>
+                    <state>0</state>
                 </option>
                 <option>
                     <name>CCOptStrategy</name>
@@ -442,7 +442,7 @@
                 </option>
                 <option>
                     <name>CCOptLevelSlave</name>
-                    <state>1</state>
+                    <state>0</state>
                 </option>
                 <option>
                     <name>CInput</name>
@@ -1154,40 +1154,7 @@
         </file>
     </group>
     <file>
-        <name>$PROJ_DIR$\..\..\Src\App1\ADC10.c</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\..\..\Src\App1\ADC10.h</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\..\..\Src\App1\ads1292.c</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\..\..\Src\App1\ads1292.h</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\..\..\Src\App1\define.h</name>
-    </file>
-    <file>
         <name>$PROJ_DIR$\..\..\Src\App1\main.c</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\..\..\Src\App1\PacketUtil.c</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\..\..\Src\App1\PacketUtil.h</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\..\..\Src\App1\rf.c</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\..\..\Src\App1\rf.h</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\..\..\Src\App1\subroutine.c</name>
-    </file>
-    <file>
-        <name>$PROJ_DIR$\..\..\Src\App1\subroutine.h</name>
     </file>
     <file>
         <name>$PROJ_DIR$\..\..\Src\App1\TI_MSPBoot_Mgr_Vectors.h</name>

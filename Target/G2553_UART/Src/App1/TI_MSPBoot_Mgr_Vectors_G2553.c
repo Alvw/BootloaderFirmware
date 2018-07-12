@@ -1,43 +1,3 @@
-/*
- * \file   TI_MSPBoot_Mgr_Vectors_G2553.h
- *
- * \brief  Vector manager for G2553
- *         This file should be added to applications based on MSPBoot in order
- *         to enable redirected interrupts
- *         Application interrupts must be added to the proxy table
- */
-/* --COPYRIGHT--,BSD
- * Copyright (c) 2012, Texas Instruments Incorporated
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- *
- * *  Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
- *
- * *  Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in the
- *    documentation and/or other materials provided with the distribution.
- *
- * *  Neither the name of Texas Instruments Incorporated nor the names of
- *    its contributors may be used to endorse or promote products derived
- *    from this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
- * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
- * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
- * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
- * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
- * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
- * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
- * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
- * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- * --/COPYRIGHT--*/
-
 #include "msp430.h"
 #include <stdint.h>
 #include "TI_MSPBoot_Mgr_Vectors.h"
@@ -86,11 +46,10 @@ void TI_MSPBoot_JumpToBoot( void )
 //  External ISR prototypes used by ProxyVectorTable
 //  Add your own ISRs as shown below
 //
-extern __interrupt void P1_Isr(void);
-extern __interrupt void USCI0TX_ISR(void);
-extern __interrupt void USCI0RX_ISR(void);
+//extern __interrupt void P1_Isr(void);
 extern __interrupt void Timer_A (void);
 extern __interrupt void Dummy_Isr (void);
+
 
 //
 //  Constant tables
@@ -115,11 +74,11 @@ __root const uint16_t ProxyVectorTable[] =
 const uint16_t ProxyVectorTable[] =
 #   endif
 {
-    0x4030, (uint16_t) P1_Isr,              // APP_PROXY_VECTOR(0) P1
+    0x4030, (uint16_t) Dummy_Isr,              // APP_PROXY_VECTOR(0) P1
     0x4030, (uint16_t) Dummy_Isr,           // APP_PROXY_VECTOR(1) P2
     0x4030, (uint16_t) Dummy_Isr,           // APP_PROXY_VECTOR(2) ADC10
-    0x4030, (uint16_t) USCI0TX_ISR,           // APP_PROXY_VECTOR(3) USCI I2C TX/RX
-    0x4030, (uint16_t) USCI0RX_ISR,           // APP_PROXY_VECTOR(4) USCI I2C STAT
+    0x4030, (uint16_t) Dummy_Isr,           // APP_PROXY_VECTOR(3) USCI I2C TX/RX
+    0x4030, (uint16_t) Dummy_Isr,           // APP_PROXY_VECTOR(4) USCI I2C STAT
     0x4030, (uint16_t) Dummy_Isr,           // APP_PROXY_VECTOR(5) TA0_1
     0x4030, (uint16_t) Timer_A,             // APP_PROXY_VECTOR(6) T0_0
     0x4030, (uint16_t) Dummy_Isr,           // APP_PROXY_VECTOR(7) WDT
@@ -128,4 +87,3 @@ const uint16_t ProxyVectorTable[] =
     0x4030, (uint16_t) Dummy_Isr,           // APP_PROXY_VECTOR(10) TA1_0
     0x4030, (uint16_t) Dummy_Isr,           // APP_PROXY_VECTOR(11) NMI
 };
-
