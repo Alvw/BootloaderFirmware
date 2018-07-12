@@ -1,6 +1,6 @@
 "-p" 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\430\config\debugger\msp430g2553.ddf" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\430\config\debugger\msp430f2274.ddf" 
 
 "--iv_base" 
 
@@ -14,7 +14,7 @@
 
 "--derivative" 
 
-"MSP430G2xx3" 
+"MSP430F2274" 
 
 "--protocol" 
 

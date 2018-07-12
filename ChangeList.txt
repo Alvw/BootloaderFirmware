@@ -21,3 +21,5 @@ IntVect		FFE0
 8. -Z(CONST)BOOT_APP_VECTORS=0
 
 9. Настройки проекта изменить микроконтроллер с 2553 на 2274. 
+
+10. Инициализация блютус. Enable pin и reset pin.

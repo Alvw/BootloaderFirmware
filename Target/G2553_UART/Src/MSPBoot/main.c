@@ -44,6 +44,14 @@ int main_boot( void )
     // Initialize MCU
     HW_init();
     clock_init();
+//------------------------------
+    P1DIR |= BIT7;
+    for(int i = 0; i < 5; i++){
+      __delay_cycles(500000);
+      P1OUT ^= BIT7;
+    }
+    P1OUT &= ~BIT7;
+//-----------------------------------------
 
     // Validate the application and jump if needed
     if (TI_MSPBoot_AppMgr_ValidateApp() == TRUE_t)
@@ -51,10 +59,12 @@ int main_boot( void )
 
     TI_MSPBoot_CI_Init();      // Initialize the Communication Interface
 
-//#ifndef NDEBUG
-    P1DIR |= BIT7;     // Used for debugging purposes to show entry to MSPBoot
-    P1OUT |= BIT7;
-//#endif
+//BlueTooth enable pin p 4.7
+  P4DIR |= BIT7;
+  P4OUT |= BIT7;
+  //RF reset pin
+  P3DIR |= BIT7;
+  P3OUT |= BIT7;
 
     while(1)
     {

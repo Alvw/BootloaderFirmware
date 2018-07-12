@@ -87,9 +87,10 @@ void TI_MSPBoot_JumpToBoot( void )
 //  Add your own ISRs as shown below
 //
 extern __interrupt void P1_Isr(void);
+extern __interrupt void USCI0TX_ISR(void);
+extern __interrupt void USCI0RX_ISR(void);
 extern __interrupt void Timer_A (void);
 extern __interrupt void Dummy_Isr (void);
-
 
 //
 //  Constant tables
@@ -117,8 +118,8 @@ const uint16_t ProxyVectorTable[] =
     0x4030, (uint16_t) P1_Isr,              // APP_PROXY_VECTOR(0) P1
     0x4030, (uint16_t) Dummy_Isr,           // APP_PROXY_VECTOR(1) P2
     0x4030, (uint16_t) Dummy_Isr,           // APP_PROXY_VECTOR(2) ADC10
-    0x4030, (uint16_t) Dummy_Isr,           // APP_PROXY_VECTOR(3) USCI I2C TX/RX
-    0x4030, (uint16_t) Dummy_Isr,           // APP_PROXY_VECTOR(4) USCI I2C STAT
+    0x4030, (uint16_t) USCI0TX_ISR,           // APP_PROXY_VECTOR(3) USCI I2C TX/RX
+    0x4030, (uint16_t) USCI0RX_ISR,           // APP_PROXY_VECTOR(4) USCI I2C STAT
     0x4030, (uint16_t) Dummy_Isr,           // APP_PROXY_VECTOR(5) TA0_1
     0x4030, (uint16_t) Timer_A,             // APP_PROXY_VECTOR(6) T0_0
     0x4030, (uint16_t) Dummy_Isr,           // APP_PROXY_VECTOR(7) WDT
@@ -127,3 +128,4 @@ const uint16_t ProxyVectorTable[] =
     0x4030, (uint16_t) Dummy_Isr,           // APP_PROXY_VECTOR(10) TA1_0
     0x4030, (uint16_t) Dummy_Isr,           // APP_PROXY_VECTOR(11) NMI
 };
+
