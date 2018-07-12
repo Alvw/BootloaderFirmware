@@ -2,7 +2,7 @@
 #                                                                              #
 #      IAR Universal Linker V6.5.1.95                                          #
 #                                                                              #
-#           Link time     =  12/Jul/2018  10:37:58                             #
+#           Link time     =  12/Jul/2018  13:22:22                             #
 #           Target CPU    =  MSP430                                            #
 #           List file     =  C:\Users\Alex\IarBootloader\BootloaderFirmware\Ta #
 #                            rget\G2553_UART\IAR\MSPBoot\BSLBased_UART\List\MS #
@@ -17,7 +17,7 @@
 #                            Format: ubrof10                                   #
 #                            UBROF version 10.0.6                              #
 #                            Using library modules for C-SPY (-rt)             #
-#           Command line  =  -f C:\Users\Alex\AppData\Local\Temp\EWDDB4.tmp    #
+#           Command line  =  -f C:\Users\Alex\AppData\Local\Temp\EW5D00.tmp    #
 #                            (C:\Users\Alex\IarBootloader\BootloaderFirmware\T #
 #                            arget\G2553_UART\IAR\MSPBoot\BSLBased_UART\Obj\Cr #
 #                            c.r43                                             #
@@ -185,7 +185,7 @@ Absolute parts
            _RAM_STATCTRL_ADDR      0202 
            _RAM_PASSWORD_ADDR      0200 
            _BOOT_RAM_START         0200 
-           _CRC_Size               79FD            TI_MSPBoot_AppMgr_AppisValid (TI_MSPBoot_AppMgr)
+           _CRC_Size               79FD            TI_MSPBoot_AppMgr_ValidateApp (TI_MSPBoot_AppMgr)
            _App_Proxy_Vector_End   F9FD 
            _App_Proxy_Vector_Start
                                    F9CE            Vector_Table (TI_MSPBoot_VecRed_G2x53)
@@ -193,9 +193,9 @@ Absolute parts
            _App_End                F9FF            TI_MSPBoot_MI_EraseApp (TI_MSPBoot_MI_Flash)
                                                    TI_MSPBoot_MI_EraseSector (TI_MSPBoot_MI_Flash)
                                                    TI_MSPBoot_MI_WriteByte (TI_MSPBoot_MI_Flash)
-           _App_Start              8003            TI_MSPBoot_AppMgr_AppisValid (TI_MSPBoot_AppMgr)
+           _App_Start              8003            TI_MSPBoot_AppMgr_ValidateApp (TI_MSPBoot_AppMgr)
            _AppChecksum_8          8002 
-           _AppChecksum            8000            TI_MSPBoot_AppMgr_AppisValid (TI_MSPBoot_AppMgr)
+           _AppChecksum            8000            TI_MSPBoot_AppMgr_ValidateApp (TI_MSPBoot_AppMgr)
                                                    TI_MSPBoot_MI_EraseApp (TI_MSPBoot_MI_Flash)
                                                    TI_MSPBoot_MI_EraseSector (TI_MSPBoot_MI_Flash)
                                                    TI_MSPBoot_MI_WriteByte (TI_MSPBoot_MI_Flash)
@@ -220,12 +220,12 @@ Absolute parts
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: FC5E - FCA3 (0x46 bytes), align: 1
+  Relative segment, address: FD22 - FD53 (0x32 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           crc16MakeBitwise        FC5E            CI_NWK_Rx_Callback (TI_MSPBoot_CI_NWK_APP_BSL_UART)
-                                                   TI_MSPBoot_AppMgr_AppisValid (TI_MSPBoot_AppMgr)
+           crc16MakeBitwise        FD22            CI_NWK_Rx_Callback (TI_MSPBoot_CI_NWK_APP_BSL_UART)
+                                                   TI_MSPBoot_AppMgr_ValidateApp (TI_MSPBoot_AppMgr)
                calls direct
 
     *************************************************************************
@@ -277,35 +277,35 @@ RESET
   ======================
 DATA16_AN
   Relative segment, address: 0002 - 0002 (0x1 bytes), align: 0
-  Segment part 1. ROOT        Intra module refs:   clock_init
+  Segment part 1. ROOT        Intra module refs:   main_boot
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            IFG1                    0002 
     -------------------------------------------------------------------------
 DATA16_AN
   Relative segment, address: 01B0 - 01B1 (0x2 bytes), align: 0
-  Segment part 2. ROOT        Intra module refs:   HW_init
+  Segment part 2. ROOT        Intra module refs:   main_boot
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            ADC10CTL0               01B0 
     -------------------------------------------------------------------------
 DATA16_AN
   Relative segment, address: 0056 - 0056 (0x1 bytes), align: 0
-  Segment part 3. ROOT        Intra module refs:   clock_init
+  Segment part 3. ROOT        Intra module refs:   main_boot
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            DCOCTL                  0056 
     -------------------------------------------------------------------------
 DATA16_AN
   Relative segment, address: 0057 - 0057 (0x1 bytes), align: 0
-  Segment part 4. ROOT        Intra module refs:   clock_init
+  Segment part 4. ROOT        Intra module refs:   main_boot
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            BCSCTL1                 0057 
     -------------------------------------------------------------------------
 DATA16_AN
   Relative segment, address: 0053 - 0053 (0x1 bytes), align: 0
-  Segment part 5. ROOT        Intra module refs:   clock_init
+  Segment part 5. ROOT        Intra module refs:   main_boot
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            BCSCTL3                 0053 
@@ -354,7 +354,7 @@ DATA16_AN
     -------------------------------------------------------------------------
 DATA16_AN
   Relative segment, address: 0160 - 0161 (0x2 bytes), align: 0
-  Segment part 12. ROOT       Intra module refs:   HW_init
+  Segment part 12. ROOT       Intra module refs:   main_boot
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            TACTL                   0160 
@@ -370,39 +370,40 @@ DATA16_AN
     -------------------------------------------------------------------------
 DATA16_AN
   Relative segment, address: 10FC - 10FC (0x1 bytes), align: 0
-  Segment part 14. ROOT       Intra module refs:   clock_init
+  Segment part 14. ROOT       Intra module refs:   main_boot
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            CALDCO_8MHZ             10FC 
     -------------------------------------------------------------------------
 DATA16_AN
   Relative segment, address: 10FD - 10FD (0x1 bytes), align: 0
-  Segment part 15. ROOT       Intra module refs:   clock_init
+  Segment part 15. ROOT       Intra module refs:   main_boot
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            CALBC1_8MHZ             10FD 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: FB9C - FC15 (0x7a bytes), align: 1
-  Segment part 19.
+  Relative segment, address: FBFC - FC7B (0x80 bytes), align: 1
+  Segment part 17.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           main_boot               FB9C            Segment part 17 (?cstart)
+           main_boot               FBFC            Segment part 17 (?cstart)
                calls direct and indirect
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: FE02 - FE19 (0x18 bytes), align: 1
-  Segment part 17.            Intra module refs:   main_boot
-           LOCAL                   ADDRESS         
-           =====                   =======         
-           clock_init              FE02 
-    -------------------------------------------------------------------------
-<CODE> 1 (was CODE)
-  Relative segment, address: FE54 - FE5D (0xa bytes), align: 1
+  Relative segment, address: FD84 - FD87 (0x4 bytes), align: 1
   Segment part 18.            Intra module refs:   main_boot
            LOCAL                   ADDRESS         
            =====                   =======         
-           HW_init                 FE54 
+           ?Subroutine0            FD84 
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: FD88 - FD9B (0x14 bytes), align: 1
+  Segment part 19.            Intra module refs:   ?Subroutine0
+                                                   main_boot
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           ?Subroutine1            FD88 
 
     *************************************************************************
 
@@ -413,51 +414,34 @@ DATA16_AN
   ======================
 RAM_PASSWORD
   Relative segment, address: 0200 - 0201 (0x2 bytes), align: 1
-  Segment part 3.             Intra module refs:   TI_MSPBoot_AppMgr_BootisForced
+  Segment part 3.             Intra module refs:   TI_MSPBoot_AppMgr_ValidateApp
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            PassWd                  0200 
     -------------------------------------------------------------------------
 RAM_STATCTRL
   Relative segment, address: 0202 - 0202 (0x1 bytes), align: 0
-  Segment part 4.             Intra module refs:   TI_MSPBoot_AppMgr_BootisForced
+  Segment part 4.             Intra module refs:   TI_MSPBoot_AppMgr_ValidateApp
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            StatCtrl                0202 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: FDE8 - FE01 (0x1a bytes), align: 1
-  Segment part 5.             Intra module refs:   TI_MSPBoot_AppMgr_ValidateApp
-           LOCAL                   ADDRESS         
-           =====                   =======         
-           TI_MSPBoot_AppMgr_AppisValid
-                                   FDE8 
-               calls direct
-    -------------------------------------------------------------------------
-<CODE> 1 (was CODE)
-  Relative segment, address: FE1A - FE31 (0x18 bytes), align: 1
-  Segment part 6.
+  Relative segment, address: FCB8 - FCEF (0x38 bytes), align: 1
+  Segment part 5.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            TI_MSPBoot_AppMgr_ValidateApp
-                                   FE1A            main_boot (main)
+                                   FCB8            main_boot (main)
                calls direct
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: FE68 - FE6F (0x8 bytes), align: 1
-  Segment part 7.
+  Relative segment, address: FDC8 - FDCF (0x8 bytes), align: 1
+  Segment part 6.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            TI_MSPBoot_AppMgr_JumpToApp
-                                   FE68            main_boot (main)
-    -------------------------------------------------------------------------
-<CODE> 1 (was CODE)
-  Relative segment, address: FDCC - FDE7 (0x1c bytes), align: 1
-  Segment part 8.             Intra module refs:   TI_MSPBoot_AppMgr_ValidateApp
-           LOCAL                   ADDRESS         
-           =====                   =======         
-           TI_MSPBoot_AppMgr_BootisForced
-                                   FDCC 
+                                   FDC8            main_boot (main)
 
     *************************************************************************
 
@@ -517,40 +501,32 @@ DATA16_C
            CI_Callback_s           FA00 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: FE32 - FE47 (0x16 bytes), align: 1
+  Relative segment, address: FD9C - FDB1 (0x16 bytes), align: 1
   Segment part 9.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           TI_MSPBoot_CI_Init      FE32            main_boot (main)
+           TI_MSPBoot_CI_Init      FD9C            main_boot (main)
                calls direct
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: FD4A - FD7B (0x32 bytes), align: 1
-  Segment part 12.
+  Relative segment, address: FCF0 - FD21 (0x32 bytes), align: 1
+  Segment part 11.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           TI_MSPBoot_CI_Process   FD4A            main_boot (main)
+           TI_MSPBoot_CI_Process   FCF0            main_boot (main)
                calls direct
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: FAF8 - FB9B (0xa4 bytes), align: 1
-  Segment part 11.            Intra module refs:   TI_MSPBoot_CI_Process
+  Relative segment, address: FB64 - FBFB (0x98 bytes), align: 1
+  Segment part 10.            Intra module refs:   TI_MSPBoot_CI_Process
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           CI_CMD_Intepreter       FAF8 
+           CI_CMD_Intepreter       FB64 
                calls direct
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: FCDE - FD15 (0x38 bytes), align: 1
-  Segment part 10.            Intra module refs:   CI_CMD_Intepreter
-           LOCAL                   ADDRESS         
-           =====                   =======         
-           CI_CMD_Rx_Data_Block    FCDE 
-               calls direct
-    -------------------------------------------------------------------------
-<CODE> 1 (was CODE)
-  Relative segment, address: FA0E - FAF7 (0xea bytes), align: 1
-  Segment part 13.            Intra module refs:   CI_Callback_s
+  Relative segment, address: FA0E - FAC7 (0xba bytes), align: 1
+  Segment part 12.            Intra module refs:   CI_Callback_s
            LOCAL                   ADDRESS         
            =====                   =======         
            CI_NWK_Rx_Callback      FA0E 
@@ -645,29 +621,29 @@ RAM_CISM
            CI_State_Machine        0203 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: FD7C - FDAB (0x30 bytes), align: 1
+  Relative segment, address: FD54 - FD83 (0x30 bytes), align: 1
   Segment part 12.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            TI_MSPBoot_CI_PHYDL_Init
-                                   FD7C            TI_MSPBoot_CI_Init (TI_MSPBoot_CI_NWK_APP_BSL_UART)
+                                   FD54            TI_MSPBoot_CI_Init (TI_MSPBoot_CI_NWK_APP_BSL_UART)
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: FC16 - FC5D (0x48 bytes), align: 1
+  Relative segment, address: FC7C - FCB7 (0x3c bytes), align: 1
   Segment part 15.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            TI_MSPBoot_CI_PHYDL_Poll
-                                   FC16            main_boot (main)
+                                   FC7C            main_boot (main)
                calls indirect
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: FE48 - FE53 (0xc bytes), align: 1
+  Relative segment, address: FDB2 - FDBD (0xc bytes), align: 1
   Segment part 16.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            TI_MSPBoot_CI_PHYDL_TXByte
-                                   FE48            CI_NWK_Rx_Callback (TI_MSPBoot_CI_NWK_APP_BSL_UART)
+                                   FDB2            CI_NWK_Rx_Callback (TI_MSPBoot_CI_NWK_APP_BSL_UART)
                                                    TI_MSPBoot_CI_Process (TI_MSPBoot_CI_NWK_APP_BSL_UART)
 
     *************************************************************************
@@ -679,7 +655,8 @@ RAM_CISM
   ======================
 DATA16_AN
   Relative segment, address: 0128 - 0129 (0x2 bytes), align: 0
-  Segment part 1. ROOT        Intra module refs:   TI_MSPBoot_MI_EraseSector
+  Segment part 1. ROOT        Intra module refs:   TI_MSPBoot_MI_EraseApp
+                                                   TI_MSPBoot_MI_EraseSector
                                                    TI_MSPBoot_MI_WriteByte
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
@@ -687,43 +664,68 @@ DATA16_AN
     -------------------------------------------------------------------------
 DATA16_AN
   Relative segment, address: 012A - 012B (0x2 bytes), align: 0
-  Segment part 2. ROOT        Intra module refs:   TI_MSPBoot_MI_EraseSector
+  Segment part 2. ROOT        Intra module refs:   TI_MSPBoot_MI_EraseApp
+                                                   TI_MSPBoot_MI_EraseSector
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            FCTL2                   012A 
     -------------------------------------------------------------------------
 DATA16_AN
   Relative segment, address: 012C - 012D (0x2 bytes), align: 0
-  Segment part 3. ROOT        Intra module refs:   TI_MSPBoot_MI_EraseSector
+  Segment part 3. ROOT        Intra module refs:   TI_MSPBoot_MI_EraseApp
+                                                   TI_MSPBoot_MI_EraseSector
                                                    TI_MSPBoot_MI_WriteByte
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            FCTL3                   012C 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: FCA4 - FCDD (0x3a bytes), align: 1
-  Segment part 6.             Intra module refs:   TI_MSPBoot_MI_EraseApp
+  Relative segment, address: FAC8 - FAE1 (0x1a bytes), align: 1
+  Segment part 6.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            TI_MSPBoot_MI_EraseSector
-                                   FCA4            CI_CMD_Intepreter (TI_MSPBoot_CI_NWK_APP_BSL_UART)
+                                   FAC8            CI_CMD_Intepreter (TI_MSPBoot_CI_NWK_APP_BSL_UART)
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: FDAC - FDCB (0x20 bytes), align: 1
-  Segment part 7.
-           ENTRY                   ADDRESS         REF BY
-           =====                   =======         ======
-           TI_MSPBoot_MI_EraseApp
-                                   FDAC            CI_CMD_Intepreter (TI_MSPBoot_CI_NWK_APP_BSL_UART)
-               calls direct
+  Relative segment, address: FAE2 - FAE9 (0x8 bytes), align: 1
+  Segment part 7.             Intra module refs:   TI_MSPBoot_MI_EraseSector
+                                                   TI_MSPBoot_MI_WriteByte
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           ?Subroutine0            FAE2 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: FD16 - FD49 (0x34 bytes), align: 1
+  Relative segment, address: FAEA - FB1D (0x34 bytes), align: 1
   Segment part 8.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
+           TI_MSPBoot_MI_EraseApp
+                                   FAEA            CI_CMD_Intepreter (TI_MSPBoot_CI_NWK_APP_BSL_UART)
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: FB1E - FB2B (0xe bytes), align: 1
+  Segment part 9.             Intra module refs:   ?Subroutine0
+                                                   TI_MSPBoot_MI_EraseApp
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           ?Subroutine2            FB1E 
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: FB2C - FB3F (0x14 bytes), align: 1
+  Segment part 10.            Intra module refs:   TI_MSPBoot_MI_EraseApp
+                                                   TI_MSPBoot_MI_EraseSector
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           ?Subroutine1            FB2C 
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: FB40 - FB63 (0x24 bytes), align: 1
+  Segment part 11.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
            TI_MSPBoot_MI_WriteByte
-                                   FD16            CI_CMD_Rx_Data_Block (TI_MSPBoot_CI_NWK_APP_BSL_UART)
+                                   FB40            CI_CMD_Intepreter (TI_MSPBoot_CI_NWK_APP_BSL_UART)
 
     *************************************************************************
 
@@ -747,19 +749,18 @@ BOOT_VECTOR_TABLE
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: FE5E - FE5F (0x2 bytes), align: 1
+  Relative segment, address: FDBE - FDBF (0x2 bytes), align: 1
   Segment part 4.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?Epilogue4              FE5E            CI_CMD_Rx_Data_Block (TI_MSPBoot_CI_NWK_APP_BSL_UART)
+           ?Epilogue4              FDBE            CI_CMD_Intepreter (TI_MSPBoot_CI_NWK_APP_BSL_UART)
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: FE60 - FE67 (0x8 bytes), align: 1
+  Relative segment, address: FDC0 - FDC7 (0x8 bytes), align: 1
   Segment part 5.             Intra module refs:   ?Epilogue4
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?Epilogue3              FE60            CI_CMD_Intepreter (TI_MSPBoot_CI_NWK_APP_BSL_UART)
-                                                   crc16MakeBitwise (Crc)
+           ?Epilogue3              FDC0            crc16MakeBitwise (Crc)
 
 
 
@@ -776,18 +777,18 @@ Module                           CODE      DATA      CONST
 ?Epilogue                          10
 ?cstart                             8
 ?reset_vector                       2
-Crc                                70
-TI_MSPBoot_AppMgr                  86      3
-TI_MSPBoot_CI_NWK_APP_BSL_UART    526     25             6
-TI_MSPBoot_CI_PHYDL_USCI_UART     132      3      8
-TI_MSPBoot_MI_Flash               142             6
+Crc                                50
+TI_MSPBoot_AppMgr                  64      3
+TI_MSPBoot_CI_NWK_APP_BSL_UART    410     25             6
+TI_MSPBoot_CI_PHYDL_USCI_UART     120      3      8
+TI_MSPBoot_MI_Flash               156             6
 TI_MSPBoot_VecRed_G2x53                                 30
-main                              156            16
+main                              152            16
   + shared                                        2
 N/A (command line)                        80
 N/A (alignment)
-------                          -----    ---     --     --
-Total:                          1 132    111     32     36
+------                            ---    ---     --     --
+Total:                            972    111     32     36
 
 
                 ****************************************
@@ -822,7 +823,7 @@ CSTACK                                 05B0 - 05FF              50   rel    1
 DATA16_AN                              10FC - 10FD               2   rel    0
 DATA16_C                               FA00 - FA05               6   rel    1
 CSTART                                 FA06 - FA0D               8   rel    1
-<CODE> 1                               FA0E - FE6F             462   rel    1
+<CODE> 1                               FA0E - FDCF             3C2   rel    1
 BOOT_VECTOR_TABLE                      FFE0 - FFFD              1E   rel    1
 RESET                                  FFFE - FFFF               2   rel    1
 
@@ -832,9 +833,9 @@ RESET                                  FFFE - FFFF               2   rel    1
                 *                                      *
                 ****************************************
 
- 1 132 bytes of CODE  memory
-   111 bytes of DATA  memory (+ 32 absolute )
-    36 bytes of CONST memory
+ 972 bytes of CODE  memory
+ 111 bytes of DATA  memory (+ 32 absolute )
+  36 bytes of CONST memory
 
 Errors: none
 Warnings: none

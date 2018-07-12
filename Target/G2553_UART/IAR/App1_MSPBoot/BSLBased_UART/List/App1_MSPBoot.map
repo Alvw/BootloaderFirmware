@@ -2,7 +2,7 @@
 #                                                                              #
 #      IAR Universal Linker V6.5.1.95                                          #
 #                                                                              #
-#           Link time     =  12/Jul/2018  12:50:41                             #
+#           Link time     =  12/Jul/2018  13:23:11                             #
 #           Target CPU    =  MSP430                                            #
 #           List file     =  C:\Users\Alex\IarBootloader\BootloaderFirmware\Ta #
 #                            rget\G2553_UART\IAR\App1_MSPBoot\BSLBased_UART\Li #
@@ -17,7 +17,7 @@
 #                            Format: ubrof10                                   #
 #                            UBROF version 10.0.6                              #
 #                            Using library modules for C-SPY (-rt)             #
-#           Command line  =  -f C:\Users\Alex\AppData\Local\Temp\EW6722.tmp    #
+#           Command line  =  -f C:\Users\Alex\AppData\Local\Temp\EW1D3D.tmp    #
 #                            (C:\Users\Alex\IarBootloader\BootloaderFirmware\T #
 #                            arget\G2553_UART\IAR\App1_MSPBoot\BSLBased_UART\O #
 #                            bj\ADC10.r43                                      #
@@ -261,26 +261,26 @@ DATA16_Z
            ADC10_DMA_Data          021C 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8B36 - 8B7D (0x48 bytes), align: 1
+  Relative segment, address: 8C6A - 8CB1 (0x48 bytes), align: 1
   Segment part 9.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ADC10_Init              8B36            main (main)
+           ADC10_Init              8C6A            main (main)
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8E40 - 8E57 (0x18 bytes), align: 1
+  Relative segment, address: 8E3E - 8E55 (0x18 bytes), align: 1
   Segment part 10.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ADC10_Measure           8E40            P1_Isr (main)
+           ADC10_Measure           8E3E            P1_Isr (main)
                                                    Timer_A (main)
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8C2C - 8C5F (0x34 bytes), align: 1
+  Relative segment, address: 8D58 - 8D81 (0x2a bytes), align: 1
   Segment part 11.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ADC10_Read_Data         8C2C            P1_Isr (main)
+           ADC10_Read_Data         8D58            P1_Isr (main)
                                                    Timer_A (main)
     -------------------------------------------------------------------------
 CSTACK
@@ -307,8 +307,12 @@ CODE
   ======================
 DATA16_AN
   Relative segment, address: 0003 - 0003 (0x1 bytes), align: 0
-  Segment part 1. ROOT        Intra module refs:   AFE_SPI_Exchange
-                                                   startRFSending (rf)
+  Segment part 1. ROOT        Intra module refs:   AFE_Cmd
+                                                   AFE_Init
+                                                   AFE_Read_Data
+                                                   AFE_Write_Reg
+                                                   USCI0TX_ISR (rf)
+                                                   rf_send (rf)
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            IFG2                    0003 
@@ -364,12 +368,12 @@ DATA16_AN
   Relative segment, address: 001D - 001D (0x1 bytes), align: 0
   Segment part 8. ROOT        Intra module refs:   AFE_Cmd
                                                    AFE_Init
+                                                   AFE_Read_Data
                                                    AFE_StartRecording
                                                    AFE_StopRecording
                                                    AFE_Write_Reg
                                                    Timer_A (main)
                                                    packetAddNewData (PacketUtil)
-                                                   spiReadData
                                                    stopDigitalOutGenerator (PacketUtil)
                                                    sys_init (subroutine)
            ENTRY                   ADDRESS         REF BY
@@ -414,21 +418,30 @@ DATA16_AN
     -------------------------------------------------------------------------
 DATA16_AN
   Relative segment, address: 006D - 006D (0x1 bytes), align: 0
-  Segment part 14. ROOT       Intra module refs:   AFE_SPI_Exchange
+  Segment part 14. ROOT       Intra module refs:   AFE_Cmd
+                                                   AFE_Init
+                                                   AFE_Read_Data
+                                                   AFE_Write_Reg
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            UCB0STAT                006D 
     -------------------------------------------------------------------------
 DATA16_AN
   Relative segment, address: 006E - 006E (0x1 bytes), align: 0
-  Segment part 15. ROOT       Intra module refs:   AFE_SPI_Exchange
+  Segment part 15. ROOT       Intra module refs:   AFE_Cmd
+                                                   AFE_Init
+                                                   AFE_Read_Data
+                                                   AFE_Write_Reg
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            UCB0RXBUF               006E 
     -------------------------------------------------------------------------
 DATA16_AN
   Relative segment, address: 006F - 006F (0x1 bytes), align: 0
-  Segment part 16. ROOT       Intra module refs:   AFE_SPI_Exchange
+  Segment part 16. ROOT       Intra module refs:   AFE_Cmd
+                                                   AFE_Init
+                                                   AFE_Read_Data
+                                                   AFE_Write_Reg
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            UCB0TXBUF               006F 
@@ -437,7 +450,6 @@ DATA16_Z
   Relative segment, address: 0306 - 030E (0x9 bytes), align: 0
   Segment part 18.            Intra module refs:   AFE_Read_Data
                                                    AFE_getLoffStatus
-                                                   spiReadData
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            spiRxBuf                0306 
@@ -457,94 +469,94 @@ DATA16_C
            regValues               8003 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8862 - 8905 (0xa4 bytes), align: 1
-  Segment part 24.
+  Relative segment, address: 8098 - 81C9 (0x132 bytes), align: 1
+  Segment part 21.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           AFE_Init                8862            main (main)
-               calls direct
+           AFE_Init                8098            main (main)
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8F2C - 8F33 (0x8 bytes), align: 1
-  Segment part 25.
+  Relative segment, address: 81CA - 81D1 (0x8 bytes), align: 1
+  Segment part 22.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           AFE_StartRecording      8F2C            startRecording (main)
+           AFE_StartRecording      81CA            main (main)
+                                                   onRF_MultiByteMessage (main)
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8F34 - 8F3B (0x8 bytes), align: 1
+  Relative segment, address: 81D2 - 81D9 (0x8 bytes), align: 1
+  Segment part 23.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           AFE_StopRecording       81D2            Timer_A (main)
+                                                   main (main)
+    -------------------------------------------------------------------------
+CODE
+  Segment part 24. NOT NEEDED.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           AFE_SPI_Exchange        
+    -------------------------------------------------------------------------
+CODE
+  Segment part 25. NOT NEEDED.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           spiReadData             
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: 81DA - 81F3 (0x1a bytes), align: 1
   Segment part 26.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           AFE_StopRecording       8F34            Timer_A (main)
-                                                   stopRecording (main)
+           AFE_Cmd                 81DA            onRF_MultiByteMessage (main)
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8E70 - 8E87 (0x18 bytes), align: 1
-  Segment part 21.            Intra module refs:   AFE_Cmd
+  Relative segment, address: 81F4 - 8205 (0x12 bytes), align: 1
+  Segment part 27.            Intra module refs:   AFE_Cmd
+                                                   AFE_Init
                                                    AFE_Write_Reg
-                                                   spiReadData
-           ENTRY                   ADDRESS         REF BY
-           =====                   =======         ======
-           AFE_SPI_Exchange        8E70 
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           ?Subroutine0            81F4 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8C90 - 8CBF (0x30 bytes), align: 1
-  Segment part 27.            Intra module refs:   AFE_Read_Data
+  Relative segment, address: 8206 - 8259 (0x54 bytes), align: 1
+  Segment part 28.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           spiReadData             8C90 
-               calls direct
-    -------------------------------------------------------------------------
-<CODE> 1 (was CODE)
-  Relative segment, address: 8DB0 - 8DCF (0x20 bytes), align: 1
-  Segment part 23.            Intra module refs:   AFE_Init
-           ENTRY                   ADDRESS         REF BY
-           =====                   =======         ======
-           AFE_Cmd                 8DB0            onRF_MultiByteMessage (main)
-               calls direct
-    -------------------------------------------------------------------------
-<CODE> 1 (was CODE)
-  Relative segment, address: 8AEC - 8B35 (0x4a bytes), align: 1
-  Segment part 22.            Intra module refs:   AFE_Init
-           ENTRY                   ADDRESS         REF BY
-           =====                   =======         ======
-           AFE_Write_Reg           8AEC            onRF_MultiByteMessage (main)
-               calls direct
+           AFE_Write_Reg           8206            onRF_MultiByteMessage (main)
     -------------------------------------------------------------------------
 CODE
-  Segment part 28. NOT NEEDED.
+  Segment part 29. NOT NEEDED.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            AFE_Read_Reg            
-               calls direct
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8906 - 8985 (0x80 bytes), align: 1
-  Segment part 29.
-           ENTRY                   ADDRESS         REF BY
-           =====                   =======         ======
-           AFE_Read_Data           8906            P1_Isr (main)
-               calls direct
-    -------------------------------------------------------------------------
-<CODE> 1 (was CODE)
-  Relative segment, address: 8E58 - 8E6F (0x18 bytes), align: 1
+  Relative segment, address: 825A - 82FB (0xa2 bytes), align: 1
   Segment part 30.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           AFE_getLoffStatus       8E58            P1_Isr (main)
+           AFE_Read_Data           825A            P1_Isr (main)
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: 8E26 - 8E3D (0x18 bytes), align: 1
+  Segment part 31.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           AFE_getLoffStatus       8E26            P1_Isr (main)
     -------------------------------------------------------------------------
 CSTACK
   Segment part 17. NOT NEEDED.
     -------------------------------------------------------------------------
 CODE
-  Segment part 31. TENTATIVE. Used definition from ADC10
+  Segment part 32. TENTATIVE. Used definition from ADC10
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            ?setjmp_save_r4         
     -------------------------------------------------------------------------
 CODE
-  Segment part 32. TENTATIVE. Used definition from ADC10
+  Segment part 33. TENTATIVE. Used definition from ADC10
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            ?setjmp_save_r5         
@@ -573,7 +585,6 @@ DATA16_AN
   Relative segment, address: 0019 - 0019 (0x1 bytes), align: 0
   Segment part 3. ROOT        Intra module refs:   Timer_A
                                                    rf_init (rf)
-                                                   rf_reset (rf)
                                                    sys_init (subroutine)
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
@@ -613,7 +624,8 @@ DATA16_Z
 DATA16_Z
   Relative segment, address: 0310 - 0310 (0x1 bytes), align: 0
   Segment part 19.            Intra module refs:   Timer_A
-                                                   startRecording
+                                                   main
+                                                   onRF_MultiByteMessage
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            lowBatteryMessageAlreadySent
@@ -622,8 +634,8 @@ DATA16_Z
 DATA16_Z
   Relative segment, address: 0311 - 0311 (0x1 bytes), align: 0
   Segment part 20.            Intra module refs:   Timer_A
-                                                   addBatteryData
-                                                   startRecording
+                                                   main
+                                                   onRF_MultiByteMessage
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            shutDownCntr            0311 
@@ -631,9 +643,8 @@ DATA16_Z
 DATA16_Z
   Relative segment, address: 0312 - 0312 (0x1 bytes), align: 0
   Segment part 21.            Intra module refs:   Timer_A
-                                                   onRF_MessageReceived
-                                                   startRecording
-                                                   stopRecording
+                                                   main
+                                                   onRF_MultiByteMessage
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            pingCntr                0312 
@@ -648,8 +659,8 @@ DATA16_Z
 DATA16_I
   Relative segment, address: 0206 - 0207 (0x2 bytes), align: 1
   Segment part 23.            Intra module refs:   Timer_A
-                                                   startRecording
-                                                   stopRecording
+                                                   main
+                                                   onRF_MultiByteMessage
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            powerUpCntr             0206 
@@ -663,22 +674,22 @@ DATA16_Z
 DATA16_Z
   Relative segment, address: 0314 - 0314 (0x1 bytes), align: 0
   Segment part 26.            Intra module refs:   Timer_A
-                                                   startRecording
-                                                   stopRecording
+                                                   main
+                                                   onRF_MultiByteMessage
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            isRecording             0314 
     -------------------------------------------------------------------------
 DATA16_I
   Relative segment, address: 0208 - 0209 (0x2 bytes), align: 1
-  Segment part 27.            Intra module refs:   addBatteryData
+  Segment part 27.            Intra module refs:   Timer_A
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            sumBatteryVoltage       0208 
     -------------------------------------------------------------------------
 DATA16_Z
   Relative segment, address: 0315 - 0315 (0x1 bytes), align: 0
-  Segment part 29.            Intra module refs:   addBatteryData
+  Segment part 29.            Intra module refs:   Timer_A
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            batteryCntr             0315 
@@ -692,77 +703,72 @@ DATA16_Z
            resetTimeout            0226 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 89E6 - 8A41 (0x5c bytes), align: 1
-  Segment part 35.
+  Relative segment, address: 8866 - 899F (0x13a bytes), align: 1
+  Segment part 32.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           main                    89E6            Segment part 19 (?cstart)
+           main                    8866            Segment part 19 (?cstart)
+               calls direct
+    -------------------------------------------------------------------------
+CODE
+  Segment part 33. NOT NEEDED.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
+           onRF_MessageReceived    
                calls direct
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 879A - 8861 (0xc8 bytes), align: 1
-  Segment part 34.            Intra module refs:   main
+  Relative segment, address: 8466 - 85C3 (0x15e bytes), align: 1
+  Segment part 31.            Intra module refs:   main
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           onRF_MessageReceived    879A 
+           onRF_MultiByteMessage   8466 
                calls direct
     -------------------------------------------------------------------------
-<CODE> 1 (was CODE)
-  Relative segment, address: 824A - 83F5 (0x1ac bytes), align: 1
-  Segment part 32.            Intra module refs:   onRF_MessageReceived
+CODE
+  Segment part 34. NOT NEEDED.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           onRF_MultiByteMessage   824A 
+           startRecording          
                calls direct
     -------------------------------------------------------------------------
-<CODE> 1 (was CODE)
-  Relative segment, address: 8D6C - 8D8D (0x22 bytes), align: 1
-  Segment part 31.            Intra module refs:   onRF_MessageReceived
-                                                   onRF_MultiByteMessage
+CODE
+  Segment part 35. NOT NEEDED.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           startRecording          8D6C 
+           stopRecording           
                calls direct
     -------------------------------------------------------------------------
-<CODE> 1 (was CODE)
-  Relative segment, address: 8F0C - 8F1B (0x10 bytes), align: 1
-  Segment part 33.            Intra module refs:   onRF_MessageReceived
+CODE
+  Segment part 36. NOT NEEDED.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           stopRecording           8F0C 
-               calls direct
+           addBatteryData          
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8CEE - 8D19 (0x2c bytes), align: 1
-  Segment part 36.            Intra module refs:   Timer_A
-           ENTRY                   ADDRESS         REF BY
-           =====                   =======         ======
-           addBatteryData          8CEE 
-    -------------------------------------------------------------------------
-<CODE> 1 (was CODE)
-  Relative segment, address: 8A9A - 8AEB (0x52 bytes), align: 1
+  Relative segment, address: 8B7E - 8BD3 (0x56 bytes), align: 1
   Segment part 37.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           P1_Isr                  8A9A            ProxyVectorTable (TI_MSPBoot_Mgr_Vectors_G2553)
+           P1_Isr                  8B7E            ProxyVectorTable (TI_MSPBoot_Mgr_Vectors_G2553)
                interrupt function
                calls direct
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8562 - 86A1 (0x140 bytes), align: 1
+  Relative segment, address: 85C4 - 871F (0x15c bytes), align: 1
   Segment part 38.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Timer_A                 8562            ProxyVectorTable (TI_MSPBoot_Mgr_Vectors_G2553)
+           Timer_A                 85C4            ProxyVectorTable (TI_MSPBoot_Mgr_Vectors_G2553)
                interrupt function
                calls direct
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8F4A - 8F4B (0x2 bytes), align: 1
+  Relative segment, address: 8EF4 - 8EF5 (0x2 bytes), align: 1
   Segment part 39.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Dummy_Isr               8F4A            ProxyVectorTable (TI_MSPBoot_Mgr_Vectors_G2553)
+           Dummy_Isr               8EF4            ProxyVectorTable (TI_MSPBoot_Mgr_Vectors_G2553)
                interrupt function
     -------------------------------------------------------------------------
 CSTACK
@@ -790,27 +796,27 @@ CODE
     -------------------------------------------------------------------------
 DATA16_C
   Relative segment, address: 800D - 8012 (0x6 bytes), align: 0
-  Segment part 8.             Intra module refs:   onRF_MessageReceived
+  Segment part 8.             Intra module refs:   main
     -------------------------------------------------------------------------
 DATA16_C
   Relative segment, address: 8013 - 8018 (0x6 bytes), align: 0
-  Segment part 9.             Intra module refs:   onRF_MessageReceived
+  Segment part 9.             Intra module refs:   main
     -------------------------------------------------------------------------
 DATA16_C
   Relative segment, address: 8019 - 8020 (0x8 bytes), align: 0
-  Segment part 10.            Intra module refs:   onRF_MessageReceived
+  Segment part 10.            Intra module refs:   main
     -------------------------------------------------------------------------
 DATA16_C
   Relative segment, address: 8021 - 8028 (0x8 bytes), align: 0
-  Segment part 11.            Intra module refs:   onRF_MessageReceived
+  Segment part 11.            Intra module refs:   main
     -------------------------------------------------------------------------
 DATA16_C
   Relative segment, address: 8029 - 8030 (0x8 bytes), align: 0
-  Segment part 12.            Intra module refs:   onRF_MessageReceived
+  Segment part 12.            Intra module refs:   main
     -------------------------------------------------------------------------
 DATA16_C
   Relative segment, address: 8031 - 8038 (0x8 bytes), align: 0
-  Segment part 13.            Intra module refs:   onRF_MessageReceived
+  Segment part 13.            Intra module refs:   main
     -------------------------------------------------------------------------
 DATA16_C
   Relative segment, address: 8039 - 8040 (0x8 bytes), align: 0
@@ -982,7 +988,7 @@ DATA16_Z
                                                    stopDigitalOutGenerator
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           dOutEnabled             0325            onRF_MessageReceived (main)
+           dOutEnabled             0325            main (main)
                                                    onRF_MultiByteMessage (main)
     -------------------------------------------------------------------------
 DATA16_Z
@@ -1025,50 +1031,51 @@ DATA16_Z
            dOutPeriodsCounter      0300 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8D1A - 8D43 (0x2a bytes), align: 1
+  Relative segment, address: 8D82 - 8DAB (0x2a bytes), align: 1
   Segment part 33.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            packetUtilResetCounters
-                                   8D1A            startRecording (main)
+                                   8D82            main (main)
+                                                   onRF_MultiByteMessage (main)
                calls direct
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8D8E - 8DAF (0x22 bytes), align: 1
+  Relative segment, address: 8DAC - 8DD1 (0x26 bytes), align: 1
   Segment part 34.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           setAccelerometerMode    8D8E            onRF_MultiByteMessage (main)
+           setAccelerometerMode    8DAC            onRF_MultiByteMessage (main)
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8ED6 - 8EE7 (0x12 bytes), align: 1
+  Relative segment, address: 8EA4 - 8EB5 (0x12 bytes), align: 1
   Segment part 35.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           measureBatteryVoltage   8ED6            onRF_MultiByteMessage (main)
+           measureBatteryVoltage   8EA4            onRF_MultiByteMessage (main)
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 83F6 - 8561 (0x16c bytes), align: 1
-  Segment part 37.
+  Relative segment, address: 8720 - 8865 (0x146 bytes), align: 1
+  Segment part 36.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           packetAddNewData        83F6            P1_Isr (main)
+           packetAddNewData        8720            P1_Isr (main)
                calls direct
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8E24 - 8E3F (0x1c bytes), align: 1
-  Segment part 36.            Intra module refs:   packetAddNewData
+  Relative segment, address: 8DEE - 8E09 (0x1c bytes), align: 1
+  Segment part 37.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            stopDigitalOutGenerator
-                                   8E24            onRF_MessageReceived (main)
+                                   8DEE            main (main)
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8098 - 8249 (0x1b2 bytes), align: 1
+  Relative segment, address: 82FC - 8465 (0x16a bytes), align: 1
   Segment part 38.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           assemblePacket          8098            main (main)
+           assemblePacket          82FC            main (main)
                calls direct
     -------------------------------------------------------------------------
 CSTACK
@@ -1121,7 +1128,7 @@ DATA16_AN
   Relative segment, address: 0001 - 0001 (0x1 bytes), align: 0
   Segment part 1. ROOT        Intra module refs:   USCI0TX_ISR
                                                    rf_init
-                                                   startRFSending
+                                                   rf_send
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            IE2                     0001 
@@ -1188,7 +1195,7 @@ DATA16_AN
 DATA16_AN
   Relative segment, address: 0067 - 0067 (0x1 bytes), align: 0
   Segment part 11. ROOT       Intra module refs:   USCI0TX_ISR
-                                                   startRFSending
+                                                   rf_send
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            UCA0TXBUF               0067 
@@ -1205,7 +1212,7 @@ DATA16_Z
   Segment part 14.            Intra module refs:   USCI0RX_ISR
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           rf_rx_buf               0327            onRF_MessageReceived (main)
+           rf_rx_buf               0327            main (main)
                                                    onRF_MultiByteMessage (main)
     -------------------------------------------------------------------------
 DATA16_Z
@@ -1217,7 +1224,8 @@ DATA16_Z
     -------------------------------------------------------------------------
 DATA16_I
   Relative segment, address: 021A - 021A (0x1 bytes), align: 0
-  Segment part 16.            Intra module refs:   rf_send
+  Segment part 16.            Intra module refs:   USCI0TX_ISR
+                                                   rf_send
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            rfConStat               021A            Timer_A (main)
@@ -1226,7 +1234,6 @@ DATA16_Z
   Relative segment, address: 0302 - 0303 (0x2 bytes), align: 1
   Segment part 18.            Intra module refs:   USCI0TX_ISR
                                                    rf_send
-                                                   startRFSending
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            rf_tx_buf               0302 
@@ -1265,7 +1272,7 @@ DATA16_Z
 DATA16_Z
   Relative segment, address: 0367 - 0367 (0x1 bytes), align: 0
   Segment part 23.            Intra module refs:   USCI0TX_ISR
-                                                   startRFSending
+                                                   rf_send
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            rf_tx_cntr              0367 
@@ -1287,63 +1294,65 @@ DATA16_Z
            rf_incoming_message_timeout_cntr
                                    0369 
     -------------------------------------------------------------------------
-<CODE> 1 (was CODE)
-  Relative segment, address: 8DD0 - 8DEB (0x1c bytes), align: 1
-  Segment part 26.            Intra module refs:   rf_init
+CODE
+  Segment part 26. NOT NEEDED.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           rf_reset                8DD0 
+           rf_reset                
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8BF6 - 8C2B (0x36 bytes), align: 1
+  Relative segment, address: 8BD4 - 8C1F (0x4c bytes), align: 1
   Segment part 27.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           rf_init                 8BF6            main (main)
-               calls direct
+           rf_init                 8BD4            main (main)
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8986 - 89E5 (0x60 bytes), align: 1
+  Relative segment, address: 8ABA - 8B0F (0x56 bytes), align: 1
   Segment part 28.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           USCI0RX_ISR             8986            ProxyVectorTable (TI_MSPBoot_Mgr_Vectors_G2553)
+           USCI0RX_ISR             8ABA            ProxyVectorTable (TI_MSPBoot_Mgr_Vectors_G2553)
                interrupt function
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8D44 - 8D6B (0x28 bytes), align: 1
-  Segment part 29.            Intra module refs:   rf_send
+  Relative segment, address: 8B10 - 8B15 (0x6 bytes), align: 1
+  Segment part 29.            Intra module refs:   USCI0RX_ISR
+                                                   USCI0TX_ISR
+           LOCAL                   ADDRESS         
+           =====                   =======         
+           ?Subroutine0            8B10 
+    -------------------------------------------------------------------------
+CODE
+  Segment part 30. NOT NEEDED.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           startRFSending          8D44 
+           startRFSending          
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8A42 - 8A99 (0x58 bytes), align: 1
+  Relative segment, address: 8B16 - 8B7D (0x68 bytes), align: 1
   Segment part 31.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           USCI0TX_ISR             8A42            ProxyVectorTable (TI_MSPBoot_Mgr_Vectors_G2553)
+           USCI0TX_ISR             8B16            ProxyVectorTable (TI_MSPBoot_Mgr_Vectors_G2553)
                interrupt function
-               calls direct
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8C60 - 8C8F (0x30 bytes), align: 1
-  Segment part 30.            Intra module refs:   USCI0TX_ISR
-           ENTRY                   ADDRESS         REF BY
-           =====                   =======         ======
-           rf_send                 8C60            Timer_A (main)
-                                                   main (main)
-                                                   onRF_MessageReceived (main)
-                                                   onRF_MultiByteMessage (main)
-               calls direct
-    -------------------------------------------------------------------------
-<CODE> 1 (was CODE)
-  Relative segment, address: 8E08 - 8E23 (0x1c bytes), align: 1
+  Relative segment, address: 8C20 - 8C69 (0x4a bytes), align: 1
   Segment part 32.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
+           rf_send                 8C20            Timer_A (main)
+                                                   main (main)
+                                                   onRF_MultiByteMessage (main)
+    -------------------------------------------------------------------------
+<CODE> 1 (was CODE)
+  Relative segment, address: 8DD2 - 8DED (0x1c bytes), align: 1
+  Segment part 33.
+           ENTRY                   ADDRESS         REF BY
+           =====                   =======         ======
            rf_delete_unfinished_incoming_messages
-                                   8E08            Timer_A (main)
+                                   8DD2            Timer_A (main)
     -------------------------------------------------------------------------
 CSTACK
   Segment part 12. NOT NEEDED.
@@ -1353,13 +1362,13 @@ DATA16_ID
   Segment part 17.            Intra module refs:   rfConStat
     -------------------------------------------------------------------------
 CODE
-  Segment part 33. TENTATIVE. Used definition from ADC10
+  Segment part 34. TENTATIVE. Used definition from ADC10
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            ?setjmp_save_r4         
     -------------------------------------------------------------------------
 CODE
-  Segment part 34. TENTATIVE. Used definition from ADC10
+  Segment part 35. TENTATIVE. Used definition from ADC10
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            ?setjmp_save_r5         
@@ -1514,20 +1523,20 @@ DATA16_AN
            CALBC1_16MHZ            10F9 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 86A2 - 8799 (0xf8 bytes), align: 1
+  Relative segment, address: 89A0 - 8AB9 (0x11a bytes), align: 1
   Segment part 23.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           sys_init                86A2            main (main)
+           sys_init                89A0            main (main)
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8E9E - 8EB1 (0x14 bytes), align: 1
+  Relative segment, address: 8E6C - 8E7F (0x14 bytes), align: 1
   Segment part 24.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           led                     8E9E            Timer_A (main)
+           led                     8E6C            Timer_A (main)
                                                    main (main)
-                                                   startRecording (main)
+                                                   onRF_MultiByteMessage (main)
     -------------------------------------------------------------------------
 CODE
   Segment part 25. NOT NEEDED.
@@ -1578,11 +1587,11 @@ RAM_STATCTRL
            StatCtrl                0202 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8E88 - 8E9D (0x16 bytes), align: 1
+  Relative segment, address: 8E56 - 8E6B (0x16 bytes), align: 1
   Segment part 6.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           TI_MSPBoot_JumpToBoot   8E88            onRF_MessageReceived (main)
+           TI_MSPBoot_JumpToBoot   8E56            main (main)
     -------------------------------------------------------------------------
 APP_PROXY_VECTORS
   Relative segment, address: F9CE - F9FD (0x30 bytes), align: 1
@@ -1629,11 +1638,11 @@ CSTACK
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: 8F48 - 8F49 (0x2 bytes), align: 1
+  Relative segment, address: 8EF6 - 8EF7 (0x2 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           __DebugBreak            8F48            __exit (?__exit)
+           __DebugBreak            8EF6            __exit (?__exit)
     -------------------------------------------------------------------------
 CSTACK
   Segment part 1. NOT NEEDED.
@@ -1659,11 +1668,11 @@ CSTACK
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: 8EC4 - 8ED5 (0x12 bytes), align: 1
+  Relative segment, address: 8E80 - 8E91 (0x12 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           __exit                  8EC4            Segment part 6 (?_exit)
+           __exit                  8E80            Segment part 6 (?_exit)
                                                    _exit (?_exit)
                calls direct
     -------------------------------------------------------------------------
@@ -1691,11 +1700,11 @@ CSTACK
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: 8F40, align: 1
+  Relative segment, address: 8EEC, align: 1
   Segment part 0.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           _exit                   8F40            exit (?exit)
+           _exit                   8EEC            exit (?exit)
     -------------------------------------------------------------------------
 CODE
   Segment part 1. NOT NEEDED.
@@ -1722,7 +1731,7 @@ CODE
   Segment part 5. NOT NEEDED.
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8F40 - 8F43 (0x4 bytes), align: 1
+  Relative segment, address: 8EEC - 8EEF (0x4 bytes), align: 1
   Segment part 6.             Intra module refs:   _exit
 
     -------------------------------------------------------------------------
@@ -1959,47 +1968,47 @@ RESET
 
   SEGMENTS IN THE MODULE
   ======================
-<CODE> 1 (was CODE)
-  Relative segment, address: 8EFA - 8EFB (0x2 bytes), align: 1
-  Segment part 0.
+CODE
+  Segment part 0. NOT NEEDED.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?Epilogue8              8EFA            assemblePacket (PacketUtil)
+           ?Epilogue8              
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8EFC - 8EFD (0x2 bytes), align: 1
-  Segment part 1.             Intra module refs:   ?Epilogue8
+  Relative segment, address: 8EC8 - 8EC9 (0x2 bytes), align: 1
+  Segment part 1.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?Epilogue7              8EFC 
+           ?Epilogue7              8EC8            assemblePacket (PacketUtil)
+                                                   packetAddNewData (PacketUtil)
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8EFE - 8EFF (0x2 bytes), align: 1
+  Relative segment, address: 8ECA - 8ECB (0x2 bytes), align: 1
   Segment part 2.             Intra module refs:   ?Epilogue7
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?Epilogue6              8EFE 
+           ?Epilogue6              8ECA 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8F00 - 8F01 (0x2 bytes), align: 1
+  Relative segment, address: 8ECC - 8ECD (0x2 bytes), align: 1
   Segment part 3.             Intra module refs:   ?Epilogue6
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?Epilogue5              8F00 
+           ?Epilogue5              8ECC 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8F02 - 8F03 (0x2 bytes), align: 1
+  Relative segment, address: 8ECE - 8ECF (0x2 bytes), align: 1
   Segment part 4.             Intra module refs:   ?Epilogue5
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?Epilogue4              8F02            packetAddNewData (PacketUtil)
+           ?Epilogue4              8ECE 
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8F04 - 8F0B (0x8 bytes), align: 1
+  Relative segment, address: 8ED0 - 8ED7 (0x8 bytes), align: 1
   Segment part 5.             Intra module refs:   ?Epilogue4
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?Epilogue3              8F04            AFE_Write_Reg (ads1292)
+           ?Epilogue3              8ED0 
 
     -------------------------------------------------------------------------
   LIBRARY MODULE, NAME : ?exit
@@ -2007,11 +2016,11 @@ RESET
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: 8F44 - 8F47 (0x4 bytes), align: 1
+  Relative segment, address: 8EF0 - 8EF3 (0x4 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           exit                    8F44            Segment part 19 (?cstart)
+           exit                    8EF0            Segment part 19 (?cstart)
                calls direct
     -------------------------------------------------------------------------
 CSTACK
@@ -2067,12 +2076,12 @@ CODE
            ?Mul8                   
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8CC0 - 8CED (0x2e bytes), align: 1
+  Relative segment, address: 8D2A - 8D57 (0x2e bytes), align: 1
   Segment part 1.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?Mul16                  8CC0            packetAddNewData (PacketUtil)
-           ?Mul16to32u             8CC0 
+           ?Mul16                  8D2A            packetAddNewData (PacketUtil)
+           ?Mul16to32u             8D2A 
 
     -------------------------------------------------------------------------
   LIBRARY MODULE, NAME : ?DivMod816u
@@ -2080,19 +2089,19 @@ CODE
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: 8DEC - 8DEF (0x4 bytes), align: 1
+  Relative segment, address: 8E0A - 8E0D (0x4 bytes), align: 1
   Segment part 0.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?DivMod8u               8DEC            assemblePacket (PacketUtil)
+           ?DivMod8u               8E0A            assemblePacket (PacketUtil)
                                                    packetAddNewData (PacketUtil)
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8DF0 - 8E07 (0x18 bytes), align: 1
+  Relative segment, address: 8E0E - 8E25 (0x18 bytes), align: 1
   Segment part 1.             Intra module refs:   ?DivMod8u
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?DivMod16u              8DF0 
+           ?DivMod16u              8E0E 
 
     -------------------------------------------------------------------------
   LIBRARY MODULE, NAME : ?DivMod32u
@@ -2100,11 +2109,11 @@ CODE
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: 8BBE - 8BF5 (0x38 bytes), align: 1
+  Relative segment, address: 8CF2 - 8D29 (0x38 bytes), align: 1
   Segment part 0.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?DivMod32u              8BBE            ?DivMod32s (?DivMod32s)
+           ?DivMod32u              8CF2            ?DivMod32s (?DivMod32s)
 
     -------------------------------------------------------------------------
   LIBRARY MODULE, NAME : ?DivMod32s
@@ -2112,11 +2121,11 @@ CODE
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: 8B7E - 8BBD (0x40 bytes), align: 1
+  Relative segment, address: 8CB2 - 8CF1 (0x40 bytes), align: 1
   Segment part 0.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ?DivMod32s              8B7E            assemblePacket (PacketUtil)
+           ?DivMod32s              8CB2            assemblePacket (PacketUtil)
 
     -------------------------------------------------------------------------
   LIBRARY MODULE, NAME : ?memcpy
@@ -2124,11 +2133,11 @@ CODE
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: 8EE8 - 8EF9 (0x12 bytes), align: 1
+  Relative segment, address: 8EB6 - 8EC7 (0x12 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           memcpy                  8EE8            __data16_memcpy (?memzero)
+           memcpy                  8EB6            __data16_memcpy (?memzero)
     -------------------------------------------------------------------------
 CSTACK
   Segment part 1. NOT NEEDED.
@@ -2153,11 +2162,11 @@ CSTACK
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: 8EB2 - 8EC3 (0x12 bytes), align: 1
+  Relative segment, address: 8E92 - 8EA3 (0x12 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           memset                  8EB2            packetUtilResetCounters (PacketUtil)
+           memset                  8E92            packetUtilResetCounters (PacketUtil)
     -------------------------------------------------------------------------
 CSTACK
   Segment part 1. NOT NEEDED.
@@ -2168,18 +2177,18 @@ CSTACK
   SEGMENTS IN THE MODULE
   ======================
 <CODE> 1 (was CODE)
-  Relative segment, address: 8F1C - 8F2B (0x10 bytes), align: 1
+  Relative segment, address: 8ED8 - 8EE7 (0x10 bytes), align: 1
   Segment part 2.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           __data16_memzero        8F1C            ?cstart_init_zero (?cstart)
+           __data16_memzero        8ED8            ?cstart_init_zero (?cstart)
     -------------------------------------------------------------------------
 <CODE> 1 (was CODE)
-  Relative segment, address: 8F3C - 8F3F (0x4 bytes), align: 1
+  Relative segment, address: 8EE8 - 8EEB (0x4 bytes), align: 1
   Segment part 3.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           __data16_memcpy         8F3C            ?cstart_init_copy (?cstart)
+           __data16_memcpy         8EE8            ?cstart_init_copy (?cstart)
                calls direct
     -------------------------------------------------------------------------
 CODE
@@ -2421,7 +2430,7 @@ Module                         CODE      DATA      CONST
 ?DivMod32s                       64
 ?DivMod32u                       56
 ?DivMod816u                      28
-?Epilogue                        18
+?Epilogue                        16
 ?Mul816                          46
 ?__dbg_break                      2
 ?__exit                          18
@@ -2432,20 +2441,20 @@ Module                         CODE      DATA      CONST
 ?memset                          18
 ?memzero                         20
 ?reset_vector                     2
-ADC10                           148      8      9
-PacketUtil                      920    250      1     16
+ADC10                           138      8      9
+PacketUtil                      814    250      1     16
 TI_MSPBoot_Mgr_Vectors_G2553     22      3            48
-ads1292                         510     11      9     10
+ads1292                         636     11      9     10
   + shared                                      7
-main                          1 218     13      1     80
+main                          1 100     13      1     80
   + shared                                      5
-rf                              382     73      7      1
-subroutine                      268            13
+rf                              374     73      7      1
+subroutine                      302            13
   + shared                                      2
 N/A (command line)                      80
 N/A (alignment)
 ------                        -----    ---     --    ---
-Total:                        3 806    438     54    155
+Total:                        3 722    438     54    155
 
 
                 ****************************************
@@ -2482,7 +2491,7 @@ DATA16_AN                              10F8 - 10F9               2   rel    0
 DATA16_C                               8003 - 8058              56   rel    0
 DATA16_ID                              805A - 806E              15   rel    1
 CSTART                                 8070 - 8097              28   rel    1
-<CODE> 1                               8098 - 8F4B             EB4   rel    1
+<CODE> 1                               8098 - 8EF7             E60   rel    1
 APP_PROXY_VECTORS                      F9CE - F9FD              30   rel    1
 RESET                                  F9FE - F9FF               2   rel    1
 
@@ -2492,7 +2501,7 @@ RESET                                  F9FE - F9FF               2   rel    1
                 *                                      *
                 ****************************************
 
- 3 806 bytes of CODE  memory
+ 3 722 bytes of CODE  memory
    438 bytes of DATA  memory (+ 54 absolute )
    155 bytes of CONST memory
 
